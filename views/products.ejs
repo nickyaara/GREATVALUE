@@ -1,0 +1,148 @@
+<%- include("partials/header.ejs"); %>
+    <section class="product-s">
+        <div class="product-c">
+            <div class="panel-display-c">
+                <div class="total-product-display-c">
+                    <P>Total Products <%= data.length%>
+                    </P>
+                </div>
+                <div class="product-sort-panel-c">
+                    <label for="sort">Sort by:</label>
+                    <select name="sort" id="sort">
+                        <option value="low-to-high">Price: Low to High</option>
+                        <option value="high-to-low">Price: High to Low</option>
+                        <option value="new">What's new</option>
+                        <option value="trending">What's trending</option>
+                    </select>
+                </div>
+            </div>
+            <div class="m-product-filter-c">
+                <div class="filter-link-c"><p class="filter-link">Filters</p></div>
+                <div class="sort-link-c"><p class="sort-link">Sort</p></div>
+            </div>
+            <div class="product-main-c">
+                <div class="product-filter-c">
+                    <div class="filter-heading-c">
+                        <p class="filter-heading">Filters</p>
+                        <p class="filter-reset">CLEAR ALL</p>
+                    </div>
+                    <div class="filter-sub-c">
+                        <div class="filter-sub-heading-c">
+                            <p class="filter-sub-heading">Shop by Brands</p>
+                        </div>
+                        <div class="filter-option-holding-c">
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="greatvalue" name="greatvalue" />
+                                <label for="greatvalue">Great Value</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="godrej" name="godrej" />
+                                <label for="godrej">Godrej</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="gd" name="gd" />
+                                <label for="gd">G&D</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-sub-c">
+                        <div class="filter-sub-heading-c">
+                            <p class="filter-sub-heading">Shop by Category</p>
+                        </div>
+                        <div class="filter-option-holding-c">
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="officechair" name="officechair" />
+                                <label for="officechair">Office Chair</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="officetable" name="officetable" />
+                                <label for="officetable">Office Table</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="storageunit" name="storageunit" />
+                                <label for="storageunit">Storage unit</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="sofa" name="sofa" />
+                                <label for="sofa">Sofa</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="safelocker" name="safelocker" />
+                                <label for="safelocker">Safe and Lockers</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="currencehandler" name="currencehandler" />
+                                <label for="currencehandler">Currence handling machine</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-sub-c">
+                        <div class="filter-sub-heading-c">
+                            <p class="filter-sub-heading">Price range</p>
+                        </div>
+                        <div class="filter-option-holding-c">
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="299-999" name="299-999" />
+                                <label for="299-999">299-999</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="1000-4999" name="1000-4999" />
+                                <label for="1000-4999">1000-4999</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="5000-9999" name="5000-9999" />
+                                <label for="5000-9999">5000-9999</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="10000-19999" name="10000-19999" />
+                                <label for="10000-19999">10000-19999</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="20000-39999" name="20000-39999" />
+                                <label for="20000-39999">10000-19999</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="40000-69999" name="40000-69999" />
+                                <label for="40000-69999">40000-69999</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="70000-99999" name="70000-99999" />
+                                <label for="70000-99999">70000-99999</label>
+                            </div>
+                            <div class="filter-option-c">
+                                <input type="checkbox" id="100000a" name="100000a" />
+                                <label for="100000a">Above-100000</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-display-c">
+                    <div class="product-card-holding-c">
+                        <!--  -->
+                        <% for (let i=0; i < data.length; i++) {%>
+                            <div id="<%= data[i].id%>" class="product-card-c">
+                                <div class="product-image-c">
+                                    <img class="product-card-image" src="/images/title_1_image.jpg"
+                                        alt="random image" />
+                                </div>
+                                <div class="product-detail-c">
+                                    <p class="product-name">
+                                        <%= data[i].name%>
+                                    </p>
+                                    <p class="product-sp">Rs. <%= data[i].sp%>
+                                    </p>
+                                    <p class="product-mrp">M.R.P: Rs. <span>
+                                            <%= data[i].mrp%>
+                                        </span></p>
+                                    <p class="product-discount">
+                                        <%= data[i].mrp - data[i].sp%> off
+                                    </p>
+                                    <p class="product-quality">Quality verified</p>
+                                </div>
+                            </div>
+                            <% }%>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <%- include("partials/footer.ejs"); %>

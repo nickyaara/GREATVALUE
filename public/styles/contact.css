@@ -1,0 +1,124 @@
+.contact-page-s {
+    background-color: #ae9e99;
+}
+
+.contact-page-c {
+    margin: 0 4rem;
+    background-color: white;
+    padding: 2rem 0;
+}
+
+.contact-heading-c {
+    padding: 1rem;
+    border-bottom: 2px solid #485559;
+}
+
+.contact-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #485559;
+}
+
+.contact-options-c {
+    padding: 1rem;
+}
+
+.option-card-c {
+    margin: 1rem;
+}
+
+.option-heading {
+    padding: .3rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #485559;
+}
+
+.option-text {
+    font-size: 1rem;
+    padding: .3rem 0;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.option-text a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f78d3f;
+}
+
+.contact-footer-media-c {
+    margin: 1rem 0;
+}
+
+.contact-socialmedia-icon-list {
+    display: flex;
+    justify-content: left;
+    list-style: none;
+}
+
+.contact-socialmedia-listitem {
+    margin: .5rem;
+}
+
+.contact-socialmedia-listitem a i {
+    font-size: 1.2rem;
+    color: #485559;
+}
+
+.faq-c {
+    margin: 1rem;
+}
+
+.faq-heading-c {
+    margin: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #485559;
+}
+
+.faq-heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #485559;
+}
+
+.faq-qna-s {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.faq-qna-c {
+    padding: .5rem 0 1rem;
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.faq-q {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+}
+
+.faq-a {
+    padding: .5rem 0;
+    line-height: 1.4;
+}
+
+.faq-qna-c p i:first-child {
+    display: none;
+}
+
+.highlight {
+    color: #f78d3f;
+}
+
+.hide {
+    display: none;
+}
+
+@media only screen and (max-width: 741px) {
+    .contact-page-c {
+        margin: 0;
+    }
+}

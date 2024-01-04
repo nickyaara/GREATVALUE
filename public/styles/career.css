@@ -1,0 +1,73 @@
+.career-page-main-c {
+    margin: 0 4rem;
+    padding: 2rem 4rem;
+}
+
+.career-heading-c {
+    padding:1.5rem 0;
+    border-bottom: 1px solid #485559;
+}
+
+.career-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #485559;
+}
+
+.jobpost-c {
+    margin: 2rem;
+    border-bottom: 1px solid #485559;
+}
+
+/* table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    white-space: nowrap;
+} */
+
+.td-name {
+    padding: .3rem 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    vertical-align: top;
+    width: 12%;
+}
+
+.td-value {
+    padding: .3rem 0;
+    letter-spacing: 1px;
+    margin-left: 1rem;
+}
+
+.job-apply-btn-c {
+    margin: 1rem 0;
+}
+
+.job-apply-btn {
+    border: none;
+    background-color: #485559;
+    color: white;
+    font-size: 1rem;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 912px) {
+    .career-page-main-c {
+        margin: 0 2rem;
+        padding: 2rem;
+    }
+}
+
+@media only screen and (max-width: 741px) {
+    .career-page-main-c {
+        margin: 0 1rem;
+        padding: .5rem;
+    }
+    .jobpost-c {
+        margin: 2rem .5rem;
+        border-bottom: 1px solid #485559;
+    }
+}

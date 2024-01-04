@@ -1,0 +1,107 @@
+.account-access-gateway-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-access-panel-c {
+    display: inline-block;
+    margin: 3rem auto;
+    box-shadow: 2px 2px 10px #485559;
+}
+
+.account-toggle-c {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #485559;
+    width: 320px;
+}
+
+.login-link-c, .signup-link-c {
+    padding: 1.5rem;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    width: 50%;
+}
+
+.login-link-c p, .signup-link-c p {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.active {
+    background-color: #485559;
+    color: #ae9e99;
+}
+
+.login-display-c {
+    margin: 2rem;
+    display: block;
+}
+
+.signup-display-c {
+    display: none;
+    margin: 2rem;
+}
+
+.login-form-heading, .signup-form-heading {
+    font-size: 2rem;
+    font-weight: 500;
+    padding: .5rem 0 1rem;
+    text-align: center;
+}
+
+.input-c {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0;
+}
+
+.input-label {
+    margin: .5rem 0 .2rem;
+    font-size: 1rem;
+}
+
+.input {
+    margin: .5rem 0;
+    font-size: 1rem;
+}
+
+.input {
+    padding: .4rem 0;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.user-submit-btn {
+    color: #ae9e99;
+    background-color: #485559;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: .8rem;
+    width: 100%;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+.user-submit-btn:hover {
+    color: white;
+    background-color: #414c50;
+}
+
+.helper-c {
+    margin: 1.5rem 0;
+}
+
+.signup-diverter, .forgot-password-link, .login-diverter {
+    font-size: .8rem;
+    padding: .2rem 0;
+}
+

@@ -1,0 +1,63 @@
+<%- include("partials/header.ejs"); %>
+<section class="account-access-gateway-c">
+    <div class="account-access-panel-c">
+        <div class="account-toggle-c">
+            <div id="login-link" class="login-link-c active"><p>Login</p></div>
+            <div id="signup-link" class="signup-link-c"><p>Signup</p></div>
+        </div>
+        <div class="account-display-c">
+            <div class="login-display-c">
+                <div class="login-heading-c">
+                    <p class="login-form-heading">Login</p>
+                </div>
+                <form class="login-form">
+                    <div class="input-c">
+                        <label class="input-label" for="login-id">Login id</label>
+                        <input class="input" type="text" id="login-id" name="login-id" placeholder="Enter your id" />
+                    </div>
+                    <div class="input-c">
+                        <label class="input-label" for="login-password">Password</label>
+                        <input class="input" type="password" id="login-password" name="login-password" placeholder="Enter your password" />
+                    </div>
+                    <button id="login-form-submit-btn" class="user-submit-btn" type="submit">Login</button>
+                </form>
+                <div class="helper-c">
+                    <P class="signup-diverter">Don't have an account?<a class="signup-link"
+                            href="">Register</a></P>
+                    <a class="forgot-password-link" href="">Forgot Password?</a>
+                </div>
+            </div>
+            <div class="signup-display-c">
+                <div class="signup-heading-c">
+                    <p class="signup-form-heading">Signup</p>
+                </div>
+                <form class="signup-form">
+                    <div class="input-c">
+                        <label class="input-label" for="user-name">Your Name</label>
+                        <input class="input" type="text" id="user-name" name="user-name" placeholder="Enter your name" />
+                    </div>
+                    <div class="input-c">
+                        <label class="input-label" for="user-email">Your email id</label>
+                        <input class="input" type="email" id="user-email" name="user-email" placeholder="Enter your email" />
+                    </div>
+                    <div class="input-c">
+                        <label class="input-label" for="signup-password">Password</label>
+                        <input class="input" type="password" id="signup-password" name="signup-password" placeholder="Enter your password" />
+                    </div>
+                    <div class="input-c">
+                        <label class="input-label" for="signup-repassword">Re-Password</label>
+                        <input class="input" type="password" id="signup-repassword" name="signup-repassword" placeholder="Enter your password again" />
+                    </div>
+                    <button id="signup-form-submit-btn" class="user-submit-btn" type="submit">Signup</button>
+                </form>
+                <div class="helper-c">
+                    <P class="login-diverter">Already have an account?<a class="login-link" onclick=""
+                            href="">Login</a></P>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
+<%- include("partials/footer.ejs"); %>

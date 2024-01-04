@@ -1,0 +1,203 @@
+.dealer-enquiry-s {
+    background-color: #ae9e99;
+}
+
+.server-response-c {
+    display: none;
+    position: absolute;
+    left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 300px;
+  background-color: green;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 25px green;
+  text-align: center;
+}
+
+.dealer-enquiry-c {
+    margin: 0 4rem;
+    padding: 2rem 4rem;
+    background-color: white;
+}
+
+.enquiry-form-heading-c {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #485559;
+}
+
+.enquiry-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #485559;
+}
+
+.enquiry-form-c {
+    margin: 1.5rem 0;
+}
+
+.enquiry-form {
+    margin: 0 2rem;
+    width: 40rem;
+}
+
+.form-input-c {
+    display: flex;
+    justify-content: space-between;
+    margin: .5rem 0;
+}
+
+.form-input-label {
+    padding: .5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #485559;
+}
+
+.red_star {
+    color: red;
+    font-size: .8rem;
+}
+
+.form-input-area {
+    margin: .5rem 0;
+    padding: .3rem .1rem;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid #ae9e99;
+    width: 75%;
+}
+
+.form-input-area:focus {
+    outline: none;
+}
+
+.address-sub-part {
+    display: inline;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.address-input-area {
+    margin: .5rem 0;
+    padding: .3rem .1rem;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid #ae9e99;
+}
+
+.address-input-area:focus {
+    outline: none;
+}
+
+.checkbox-list {
+    margin: .5rem 0;
+    padding: .5rem;
+    display: inline;
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #ae9e99;
+    border-radius: 5px;
+    /* flex-direction: column; */
+}
+
+.checkbox-c {
+    display: inline;
+    margin: .3rem;
+    padding: .3rem;
+    font-size: 1rem;
+    border: none;
+}
+
+.form-checkbox-area {
+    margin-right: .2rem;
+}
+
+.form-input-c textarea {
+    width: 75%;
+    height: 80px;
+    margin: .5rem 0;
+    padding: .5rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+.form-input-area textarea:focus {
+    outline: none;
+}
+
+.form-submit-btn-c {
+    margin: 1rem 0;
+    padding: 1rem 0;
+    text-align: right;
+}
+
+.form-submit-btn {
+    padding: .8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    border-radius: 5px;
+    background-color: #485559;
+    color: #ae9e99;
+    cursor: pointer;
+}
+
+.form-submit-btn:hover {
+    color: white;
+}
+
+@media only screen and (max-width: 820px) {
+    .dealer-enquiry-c {
+        margin: 0 1rem;
+        padding: 1rem 1rem;
+        background-color: white;
+    }
+    .enquiry-form-c {
+        margin: 1rem 0;
+    }
+}
+
+@media only screen and (max-width: 641px) {
+    .dealer-enquiry-c {
+        margin: 0 .5rem;
+        padding: .5rem 1rem;
+        background-color: white;
+    }
+    .enquiry-form {
+        margin: 0 1rem;
+        width: 90%;
+    }
+    .form-input-c {
+        display: flex;
+        flex-direction: column;
+        margin: .5rem 0;
+    }
+    .form-input-area {
+        width: 100%;
+    }
+    .address-sub-part {
+        width: 100%;
+    }
+    .checkbox-list {
+        width: 100%;
+    }
+    .form-input-c textarea {
+        width: 100%;
+    }
+    .form-submit-btn {
+        padding: .8rem;
+        border-radius: 0;
+        width: 100%;
+    }    
+    .enquiry-heading {
+        text-align: center;
+        
+    }
+}

@@ -1,0 +1,116 @@
+<%- include("partials/header.ejs"); %>
+    <section class="dealer-enquiry-s">
+        <div class="server-response-c"><p>Request submitted succussfully</p></div>
+        <div class="dealer-enquiry-c">
+            <div class="enquiry-form-heading-c">
+                <p class="enquiry-heading">Dealer Enquiry</p>
+            </div>
+            <div class="enquiry-form-c">
+                <form id="dealer-enquiry-form" class="enquiry-form" action="/dealer-enquiry" method="post">
+                    <!-- action="/dealer-enquiry" method="post" -->
+                    <div class="form-input-c">
+                        <label class="form-input-label" for="first_name">First Name<span aria-label="required"
+                                class="red_star">*</span></label>
+                        <input class="form-input-area" type="text" id="first_name" name="first_name"
+                            placeholder="First name" autocomplete="given-name" required />
+                    </div>
+                    <div class="form-input-c">
+                        <label class="form-input-label" for="last_name">Last Name</label>
+                        <input class="form-input-area" type="text" id="last_name" name="last_name"
+                            placeholder="Last name" />
+                    </div>
+                    <div class="form-input-c">
+                        <label class="form-input-label" for="email_id">E-mail id<span aria-label="required"
+                                class="red_star">*</span></label>
+                        <input class="form-input-area" type="email" id="email_id" name="email_id" placeholder="email-id"
+                            required />
+                    </div>
+                    <div class="form-input-c">
+                        <label class="form-input-label" for="phone_number">Mobile Number<span aria-label="required"
+                                class="red_star">*</span></label>
+                        <input class="form-input-area" type="tel" id="phone_number" name="phone_number"
+                            placeholder="Mobile Number" required />
+                    </div>
+                    <div class="form-input-c">
+                        <label class="form-input-label" for="address">Address<span aria-label="required"
+                                class="red_star">*</span></label>
+                        <div class="address-sub-part">
+                            <input class="address-input-area" type="text" id="address" name="address"
+                                placeholder="Address" autocomplete="street-address" required />
+                            <input class="address-input-area" type="text" id="city" name="city" placeholder="Town/City"
+                                required />
+                            <input class="address-input-area" type="number" id="pin_code" name="pin_code"
+                                placeholder="Pin Code" required />
+                            <input class="address-input-area" type="text" id="state" name="state" placeholder="State"
+                             required />
+                            <!-- <datalist id="statelist">
+                                <option>Apple</option>
+                                <option>Banana</option>
+                                <option>Blackberry</option>
+                                <option>Blueberry</option>
+                                <option>Lemon</option>
+                                <option>Lychee</option>
+                                <option>Peach</option>
+                                <option>Pear</option>
+                              </datalist> -->
+                        </div>
+                    </div>
+                    <div class="form-input-c">
+                        <label class="form-input-label" for="item1">Interested in products<span aria-label="required"
+                                class="red_star">*</span></label>
+                        <!-- <div class="checkbox-list"> -->
+                        <fieldset class="checkbox-list">
+                            <!-- <legend>Address:</legend> -->
+                            <div class="checkbox-c">
+                                <input class="form-checkbox-area" type="checkbox" id="item1" name="item1"
+                                    value="office chair" />
+                                <label for="item1">Office Chair</label>
+                            </div>
+                            <div class="checkbox-c">
+                                <input class="form-checkbox-area" type="checkbox" id="item2" name="item2"
+                                    value="Office table" />
+                                <label for="item2">Office Table</label>
+                            </div>
+                            <div class="checkbox-c">
+                                <input class="form-checkbox-area" type="checkbox" id="item3" name="item3"
+                                    value="Sofa" />
+                                <label for="item3">Sofa</label>
+                            </div>
+                            <div class="checkbox-c">
+                                <input class="form-checkbox-area" type="checkbox" id="item4" name="item4"
+                                    value="Office storage" />
+                                <label for="item4">Office storage</label>
+                            </div>
+                            <div class="checkbox-c">
+                                <input class="form-checkbox-area" type="checkbox" id="item5" name="item5"
+                                    value="Cash counting machine" />
+                                <label for="item5">Cash counting machine</label>
+                            </div>
+                            <div class="checkbox-c">
+                                <input class="form-checkbox-area" type="checkbox" id="item6" name="item6"
+                                    value="Locker safe" />
+                                <label for="item6">Locker safe</label>
+                            </div>
+                            <div class="checkbox-c">
+                                <input class="form-checkbox-area" type="checkbox" id="item7" name="item7"
+                                    value="Cash sorting machine" />
+                                <label for="item7">Cash sorting machine</label>
+                            </div>
+                        </fieldset>
+                        <!-- </div> -->
+                    </div>
+                    <div class="form-input-c">
+                        <label class="form-input-label" for="enquiry">Message/Enquiry<span aria-label="required"
+                                class="red_star">*</span></label>
+                        <textarea class="form-text-area" id="enquiry" name="enquiry"
+                            placeholder="Message/Enquiry"></textarea>
+                    </div>
+                    <div class="form-submit-btn-c">
+                        <!-- <input class="form-submit-btn" type="submit" value="Submit" /> -->
+                        <button class="form-submit-btn" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <%- include("partials/footer.ejs"); %>

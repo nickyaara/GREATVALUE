@@ -1,0 +1,159 @@
+.product-c {
+    margin: 1rem 0;
+}
+
+.panel-display-c {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1rem;
+    box-shadow: 2px 2px 8px gray;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.m-product-filter-c {
+    display: none;
+}
+
+.product-main-c {
+    padding: 1rem;
+    display: flex;
+}
+
+.product-filter-c {
+    display: inline-block;
+    min-width: 220px;
+    padding: 1rem .5rem;
+    margin-right: .2rem;
+    box-shadow: 2px 2px 8px gray;
+}
+
+.filter-heading-c {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 .5rem;
+    padding: .5rem 0 0;
+}
+
+.filter-heading {
+    font-weight: 600;
+}
+
+.filter-reset {
+    font-weight: 600;
+    color: tomato;
+    cursor: pointer;
+} 
+
+.filter-sub-c {
+    margin: .5rem;
+    padding: .5rem;
+    border: 1px solid lightgray;
+}
+
+.filter-sub-heading-c {
+    padding: .4rem 0;
+    font-weight: 600;
+}
+
+.filter-option-holding-c {
+    margin: .5rem;
+}
+
+.filter-option-c {
+    padding: .3rem 0;
+}
+
+.product-display-c {
+    width: 100%;
+}
+
+.product-card-holding-c {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.product-card-c {
+    box-shadow: 2px 2px 8px gray;
+    margin: .5rem;
+    cursor: pointer;
+}
+
+.product-image-c {
+    text-align: center;
+}
+
+.product-card-image {
+    width: 100%;
+    height: auto;
+}
+
+.product-detail-c {
+    margin: .5rem .3rem;
+}
+
+.product-name {
+    font-weight: 600;
+    line-height: 1.2;
+    padding: .5rem 0;
+}
+
+.product-sp {
+    display: inline-block;
+    padding: .5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.product-mrp {
+    display: inline;
+    font-size: .8rem;
+}
+
+.product-mrp span {
+    text-decoration: line-through;
+}
+
+.product-mrp span {
+    text-decoration: line-through;
+}
+
+.product-discount {
+    display: inline;
+    color: red;
+    font-size: .8rem;
+}
+
+.product-quality {
+    font-size: .7rem;
+    padding: .5rem 0;
+}
+
+@media only screen and (max-width: 530px) {
+    .panel-display-c {
+        display: none;
+    }
+    .product-filter-c {
+        display: none;
+    }
+    .m-product-filter-c {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid gray;
+    }
+    .filter-link-c, .sort-link-c {
+        width: 50%;
+        padding: 10px 5px;
+        background-color: white;
+    }
+    .filter-link, .sort-link {
+        text-align: center;
+    }
+    .filter-link-c:active, .sort-link-c:active {
+        background-color: gray;
+    }
+}
