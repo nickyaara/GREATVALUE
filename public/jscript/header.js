@@ -80,3 +80,18 @@ function toggleResponce(value) {
 }
 
 // javascript code to send form data to server
+
+
+//Javascript code that respose to product card click and open detail productshowcase page
+
+document.querySelectorAll('.product-card-c').forEach((div) => {
+  div.addEventListener('click', function(event) {
+    console.log(event.target.closest('.product-card-c').id);
+    const selectedId =event.target.closest('.product-card-c').id;
+    fetch(`/products/${selectedId}`)
+    //       .then(response => console.log(response.text()))
+          // .then(data => {
+          //   document.getElementById("result").innerHTML = data;
+          // });
+  });
+});

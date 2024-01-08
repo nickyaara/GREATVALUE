@@ -17,27 +17,25 @@
             </div>
             <div class="pd-abstract-c">
                 <div class="product-name-c">
-                    <p class="pd-product-name">Great Value study table with drover</p>
+                    <p class="pd-product-name"><%= product[0].p_name%></p>
                 </div>
                 <div class="product-status-c">
-                    <p class="product-stock-status">In Stock</p>
-                    <p class="product-rating-status">Rating <span></span> <i class="fa-solid fa-star" aria-hidden="true"></i></p>
+                    <p class="product-stock-status"><%= product[0].in_stock >0 ? "In Stock" : "Out of stock" %></p>
+                    <p class="product-rating-status">Rating <span><%= product[0].rating%></span> <i class="fa-solid fa-star" aria-hidden="true"></i></p>
                 </div>
                 <div class="product-mini-abstract-c">
                     <div class="product-price-c">
-                        <p class="selling-price">Rs. <span>6000</span> </p>
+                        <p class="selling-price">Rs. <span><%= product[0].selling_price%></span> </p>
                         <p class="taxMsg">(Inclusive of all taxes)</p>
-                        <p class="mrp">MRP. <span>15000</span> </p>
-                        <p class="discount-value">Rs. <span>9000</span> Off</p>
+                        <p class="mrp">MRP. <span><%= product[0].mrp%></span> </p>
+                        <p class="discount-value">Rs. <span><%= product[0].mrp-product[0].selling_price%></span> Off</p>
                     </div>
                     <div class="product-feature-c">
                         <p class="product-feature-heading">Features</p>
                         <ul class="product-feature-list">
-                            <li class="product-feature-listitem">bla bla bla bla bla</li>
-                            <li class="product-feature-listitem">bla bla bla bla bla</li>
-                            <li class="product-feature-listitem">bla bla bla bla bla</li>
-                            <li class="product-feature-listitem">bla bla bla bla bla</li>
-                            <li class="product-feature-listitem">bla bla bla bla bla</li>
+                            <% for (let i=0; i < product[0].feature.length; i++) {%>
+                            <li class="product-feature-listitem"><%= product[0].feature[i]%></li>
+                            <% }%>
                         </ul>
                     </div>
                     <div class="buy-cart-btn-c">

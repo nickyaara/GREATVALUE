@@ -122,20 +122,20 @@
                         <% for (let i=0; i < data.length; i++) {%>
                             <div id="<%= data[i].id%>" class="product-card-c">
                                 <div class="product-image-c">
-                                    <img class="product-card-image" src="/images/title_1_image.jpg"
+                                    <img class="product-card-image" src="<%= data[i].images[0]%>"
                                         alt="random image" />
                                 </div>
                                 <div class="product-detail-c">
                                     <p class="product-name">
-                                        <%= data[i].name%>
+                                        <%= data[i].p_name%>
                                     </p>
-                                    <p class="product-sp">Rs. <%= data[i].sp%>
+                                    <p class="product-sp">Rs. <%= data[i].selling_price%>
                                     </p>
                                     <p class="product-mrp">M.R.P: Rs. <span>
                                             <%= data[i].mrp%>
-                                        </span></p>
+                                        </span> </p>
                                     <p class="product-discount">
-                                        <%= data[i].mrp - data[i].sp%> off
+                                        <%= data[i].mrp - data[i].selling_price%> off
                                     </p>
                                     <p class="product-quality">Quality verified</p>
                                 </div>

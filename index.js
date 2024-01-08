@@ -59,7 +59,7 @@ app.get("/contact", (req, res) => {
 
 app.get("/products", async (req, res) => {
     try {
-        const cardValue = await db.query("SELECT * FROM product_detail");
+        const cardValue = await db.query("SELECT id, images, p_name, selling_price, mrp FROM products");
             // res.sendStatus(200);
             // console.log(cardValue.rows);
             res.render("products.ejs", {data :cardValue.rows});
@@ -69,10 +69,19 @@ app.get("/products", async (req, res) => {
     
 })
 
-
-app.get("/details", async (req, res) => {
-    res.render("productshowcase.ejs");
+app.get('/products/:id', async function(req, res) {
+    try {
+        const selectedId = await db.query(`SELECT * FROM products WHERE id=${req.params.id}`);
+            res.render("productshowcase.ejs", {product :selectedId.rows});
+    } catch (err) {
+        console.log(err);
+    }
 });
+
+
+// app.get("/details", async (req, res) => {
+//     res.render("productshowcase.ejs");
+// });
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
