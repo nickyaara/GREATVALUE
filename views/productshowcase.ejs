@@ -1,159 +1,173 @@
 <%- include("partials/header.ejs"); %>
-<section class="product-detail-display-s">
-    <div class="pd-aliner-c">
-        <div class="pd-highlight-c">
-            <div class="pd-image-showcase-c">
-                <div class="pd-image-main-c">
-                    <img class="pd-main-img" src="images/catagory-2.jpg" alt="" />
+    <section class="product-detail-display-s">
+        <div class="pd-aliner-c">
+            <div class="pd-highlight-c">
+                <div class="pd-image-showcase-c">
+                    <div class="pd-image-main-c">
+                        <img class="pd-main-img" src="<%= product[0].images[0]%>" alt="" />
+                    </div>
+                    <div class="pd-image-sub-c">
+                        <div class="pd-sub-img-c">
+                            <img class="pd-sub-img" src="<%= product[0].images[0]%>" alt="" />
+                            <img class="pd-sub-img" src="<%= product[0].images[1]%>" alt="" />
+                            <img class="pd-sub-img" src="<%= product[0].images[2]%>" alt="" />
+                            <img class="pd-sub-img" src="<%= product[0].images[3]%>" alt="" />
+                        </div>
+                    </div>
                 </div>
-                <div class="pd-image-sub-c">
-                    <div class="pd-sub-img-c">
-                        <img class="pd-sub-img" src="images/catagory-2.jpg" alt="" />
-                        <img class="pd-sub-img" src="images/catagory-2.jpg" alt="" />
-                        <img class="pd-sub-img" src="images/catagory-2.jpg" alt="" />
-                        <img class="pd-sub-img" src="images/catagory-2.jpg" alt="" />
+                <div class="pd-abstract-c">
+                    <div class="product-name-c">
+                        <p class="pd-product-name">
+                            <%= product[0].p_name%>
+                        </p>
+                    </div>
+                    <div class="product-status-c">
+                        <p class="product-stock-status">
+                            <%= product[0].in_stock>0 ? "In Stock" : "Out of stock" %>
+                        </p>
+                        <p class="product-rating-status">Rating <span>
+                                <%= product[0].rating%>
+                            </span> <i class="fa-solid fa-star" aria-hidden="true"></i></p>
+                    </div>
+                    <div class="product-mini-abstract-c">
+                        <div class="product-price-c">
+                            <p class="selling-price">Rs. <span>
+                                    <%= product[0].selling_price%>
+                                </span> </p>
+                            <p class="taxMsg">(Inclusive of all taxes)</p>
+                            <p class="mrp">MRP. <span>
+                                    <%= product[0].mrp%>
+                                </span> </p>
+                            <p class="discount-value">Rs. <span>
+                                    <%= product[0].mrp-product[0].selling_price%>
+                                </span> Off</p>
+                        </div>
+                        <div class="product-feature-c">
+                            <p class="product-feature-heading">Features</p>
+                            <ul class="product-feature-list">
+                                <% for (let i=0; i < product[0].feature.length; i++) {%>
+                                    <li class="product-feature-listitem">
+                                        <%= product[0].feature[i]%>
+                                    </li>
+                                    <% }%>
+                            </ul>
+                        </div>
+                        <div class="buy-cart-btn-c">
+                            <button class="Add-to-cart">Add to cart</button>
+                            <button class="buy-btn">Buy now</button>
+                        </div>
+                        <div class="company-feature-tray-c">
+                            <div class="company-feature-point-c">
+                                <i class="fa-solid fa-award" aria-hidden="true"></i>
+                                <p class="company-feature-point">Great Value Assured</p>
+                            </div>
+                            <div class="company-feature-point-c">
+                                <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+                                <p class="company-feature-point">7 days exchange</p>
+                            </div>
+                            <div class="company-feature-point-c">
+                                <i class="fa-solid fa-truck" aria-hidden="true"></i>
+                                <p class="company-feature-point">Doorstep delivery</p>
+                            </div>
+                            <div class="company-feature-point-c">
+                                <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
+                                <p class="company-feature-point">100% genuine product</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="pd-abstract-c">
-                <div class="product-name-c">
-                    <p class="pd-product-name"><%= product[0].p_name%></p>
-                </div>
-                <div class="product-status-c">
-                    <p class="product-stock-status"><%= product[0].in_stock >0 ? "In Stock" : "Out of stock" %></p>
-                    <p class="product-rating-status">Rating <span><%= product[0].rating%></span> <i class="fa-solid fa-star" aria-hidden="true"></i></p>
-                </div>
-                <div class="product-mini-abstract-c">
-                    <div class="product-price-c">
-                        <p class="selling-price">Rs. <span><%= product[0].selling_price%></span> </p>
-                        <p class="taxMsg">(Inclusive of all taxes)</p>
-                        <p class="mrp">MRP. <span><%= product[0].mrp%></span> </p>
-                        <p class="discount-value">Rs. <span><%= product[0].mrp-product[0].selling_price%></span> Off</p>
+            <div class="pd-full-c">
+                <div class="pd-details-c">
+                    <div class="pd-details-heading-c">
+                        <p class="pd-details-heading">Details</p>
                     </div>
-                    <div class="product-feature-c">
-                        <p class="product-feature-heading">Features</p>
-                        <ul class="product-feature-list">
-                            <% for (let i=0; i < product[0].feature.length; i++) {%>
-                            <li class="product-feature-listitem"><%= product[0].feature[i]%></li>
+                    <div class="pd-details-table-c">
+                        <table>
+                            <tbody>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Name</td>
+                                    <td class="pd-td-value">fbfck bciuchic sdiusci csdhsc oc jsiosc</td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Colour</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Material</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Dimensions</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Weight Limit</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Sutable for</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Number of wheels</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Net Quantity</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Item weight</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Installation type</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Assembly required</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Brand</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Model number</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Item code</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">Warranty</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                                <tr class="pd-tr">
+                                    <td class="pd-td-name">In the box</td>
+                                    <td class="pd-td-value"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="pd-description-c">
+                    <div class="pd-description-heading-c">
+                        <p class="pd-description-heading">Description</p>
+                    </div>
+                    <div class="pd-description-list-c">
+                        <ul class="pd-description-list">
+                            <% for (let i=0; i < product[0].description.length; i++) {%>
+                                <li class="pd-description-listitem">
+                                    <%= product[0].description[i]%>
+                                </li>
                             <% }%>
                         </ul>
                     </div>
-                    <div class="buy-cart-btn-c">
-                        <button class="Add-to-cart">Add to cart</button>
-                        <button class="buy-btn">Buy now</button>
-                    </div>
-                    <div class="company-feature-tray-c">
-                        <div class="company-feature-point-c">
-                            <i class="fa-solid fa-award" aria-hidden="true"></i>
-                            <p class="company-feature-point">Great Value Assured</p>
-                        </div>
-                        <div class="company-feature-point-c">
-                            <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
-                            <p class="company-feature-point">7 days exchange</p>
-                        </div>
-                        <div class="company-feature-point-c">
-                            <i class="fa-solid fa-truck" aria-hidden="true"></i>
-                            <p class="company-feature-point">Doorstep delivery</p>
-                        </div>
-                        <div class="company-feature-point-c">
-                            <i class="fa-solid fa-thumbs-up" aria-hidden="true"></i>
-                            <p class="company-feature-point">100% genuine product</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <div class="pd-full-c">
-            <div class="pd-details-c">
-                <div class="pd-details-heading-c">
-                    <p class="pd-details-heading">Details</p>
-                </div>
-                <div class="pd-details-table-c">
-                    <table>
-                        <tbody>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Name</td>
-                                <td class="pd-td-value">fbfck bciuchic sdiusci csdhsc oc jsiosc</td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Colour</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Material</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Dimensions</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Weight Limit</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Sutable for</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Number of wheels</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Net Quantity</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Item weight</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Installation type</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Assembly required</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Brand</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Model number</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Item code</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">Warranty</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                            <tr class="pd-tr">
-                                <td class="pd-td-name">In the box</td>
-                                <td class="pd-td-value"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="pd-description-c">
-                <div class="pd-description-heading-c">
-                    <p class="pd-description-heading">Description</p>
-                </div>
-                <div class="pd-description-list-c">
-                    <ul class="pd-description-list">
-                        <li class="pd-description-listitem">ERGONOMIC DESIGN: The backrest of this desk chair fit the natural curve of the human body, So that you can maintain a healthy and comfortable sitting posture. Thickened cushions provide better sitting experience with high density breathable mesh.</li>
-                        <li class="pd-description-listitem">COMFORTABLE SEAT - Thick moulded pu seat with Mesh fabric and Large seat for a sweat-free sitting experience. The adjustable headrest is designed to support keeping your whole body cool and comfortable position to your neck and head.</li>
-                        <li class="pd-description-listitem">HIGH BACK SUPPORT- The ergonomic design with back support provides maximum ease for long sitting sessions.</li>
-                        <li class="pd-description-listitem">ADJUSTABLE HEIGHT & TILT MODE : The rocking mode allows increased relaxation, pull the lever outwards to recline and push it inwards to stop with class 4 gaslift. A tilt-tension knob underneath the chair seat makes it easier to rock back in your chair.</li>
-                        <li class="pd-description-listitem">ADJUSTABLE LUMBAR SUPPORT : Adjust lumbar support according to your comfort.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<%- include("partials/footer.ejs"); %>
+    </section>
+    <%- include("partials/footer.ejs"); %>

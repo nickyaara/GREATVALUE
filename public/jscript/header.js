@@ -86,12 +86,8 @@ function toggleResponce(value) {
 
 document.querySelectorAll('.product-card-c').forEach((div) => {
   div.addEventListener('click', function(event) {
-    console.log(event.target.closest('.product-card-c').id);
+    // console.log(event.target.closest('.product-card-c').id);
     const selectedId =event.target.closest('.product-card-c').id;
-    fetch(`/products/${selectedId}`)
-    //       .then(response => console.log(response.text()))
-          // .then(data => {
-          //   document.getElementById("result").innerHTML = data;
-          // });
+    window.location.assign(`http://localhost:3000/products/${selectedId}`);
   });
 });

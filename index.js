@@ -2,13 +2,18 @@ import express from "express";
 import ejs from "ejs";
 import bodyParser from "body-parser";
 import pg from "pg";
+import {dirname} from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const app = express(); // Create an express app
 const port = 3000;
 
 app.set('view engine', 'ejs'); // set ejs as view engine
-app.use(express.static("public")); // Define folder for static file "app.use is a middleware"
+// app.use(express.static("public")); // Define folder for static file "app.use is a middleware"
 app.use(bodyParser.urlencoded({ extended: true })); // Help to get data from frontend
+
+app.use(express.static(__dirname + '/public/'));
 
 const db = new pg.Client({
     user: "postgres",
@@ -72,16 +77,12 @@ app.get("/products", async (req, res) => {
 app.get('/products/:id', async function(req, res) {
     try {
         const selectedId = await db.query(`SELECT * FROM products WHERE id=${req.params.id}`);
+        // console.log(selectedId.rows);
             res.render("productshowcase.ejs", {product :selectedId.rows});
     } catch (err) {
         console.log(err);
     }
 });
-
-
-// app.get("/details", async (req, res) => {
-//     res.render("productshowcase.ejs");
-// });
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
