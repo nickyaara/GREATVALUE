@@ -1,72 +1,123 @@
 <%- include("partials/header.ejs"); %>
     <section class="career-page-s">
-        <!-- <div class="career-page-slogan-c">
-            <p class="career-page-slogan">Let's grow together..</p>
-        </div> -->
         <div class="career-page-main-c">
             <div class="career-heading-c">
                 <p class="career-heading">Job Openings</p>
             </div>
             <div class="jobposts-c">
-                <div class="jobpost-c">
-                    <table>
-                        <tbody>
-                            <tr class="trow">
-                                <td class="td-name">Job title</td>
-                                <td class="td-value">Field Sales Executive</td>
-                            </tr>
-                            <tr class="trow">
-                                <td class="td-name">Experience</td>
-                                <td class="td-value">2-4 Years</td>
-                            </tr>
-                            <tr class="trow">
-                                <td class="td-name">Job Location</td>
-                                <td class="td-value">Jaipur, Udaipur</td>
-                            </tr>
-                            <tr class="trow">
-                                <td class="td-name">Salary</td>
-                                <td class="td-value">10k-20K Per month (no bar for right candidate)</td>
-                            </tr>
-                            <tr class="trow">
-                                <td class="td-name">Description</td>
-                                <td class="td-value">Handle Our Exiting clients and develop new market for our Banking Products like safe Lockers of Godrej . Increase sales revenue by sale of our Furniture Counting Machine and other products.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="job-apply-btn-c">
-                        <button class="job-apply-btn">Apply Now</button>
+                <% for(let i=0; i<jobs.length; i++) {%>
+                    <div class="jobpost-c">
+                        <table>
+                            <tbody>
+                                <tr class="trow">
+                                    <td class="td-name">Job title</td>
+                                    <td id="p-<%= jobs[i].id%>" class="td-value">
+                                        <%=jobs[i].title%>
+                                    </td>
+                                </tr>
+                                <tr class="trow">
+                                    <td class="td-name">Experience</td>
+                                    <td class="td-value">
+                                        <%=jobs[i].experience%>
+                                    </td>
+                                </tr>
+                                <tr class="trow">
+                                    <td class="td-name">Job Location</td>
+                                    <td class="td-value">
+                                        <%=jobs[i].location%>
+                                    </td>
+                                </tr>
+                                <tr class="trow">
+                                    <td class="td-name">Salary</td>
+                                    <td class="td-value">
+                                        <%=jobs[i].salary%>
+                                    </td>
+                                </tr>
+                                <tr class="trow">
+                                    <td class="td-name">Description</td>
+                                    <td class="td-value">
+                                        <%=jobs[i].description%>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="job-apply-btn-c">
+                            <button id="<%= jobs[i].id%>" class="job-apply-btn" onclick="apply(this.id)">Apply
+                                Now</button>
+                        </div>
                     </div>
+                    <%}%>
+            </div>
+        </div>
+
+    </section>
+    <!-- form section -->
+    <div class="job-application-block">
+        <div class="job-application-s">
+            <div class="job-application-c">
+                <div class="job-application-heading-c">
+                    <p class="job-application-heading">Application form</p>
+                    <i id="job-form-cross" class="fa-solid fa-xmark"></i>
                 </div>
-                <div class="jobpost-c">
-                    <table>
-                        <tbody>
-                            <tr class="trow">
-                                <td class="td-name">Job title</td>
-                                <td class="td-value">Field Sales Executive</td>
-                            </tr>
-                            <tr class="trow">
-                                <td class="td-name">Experience</td>
-                                <td class="td-value">2-4 Years</td>
-                            </tr>
-                            <tr class="trow">
-                                <td class="td-name">Job Location</td>
-                                <td class="td-value">Jaipur, Udaipur</td>
-                            </tr>
-                            <tr class="trow">
-                                <td class="td-name">Salary</td>
-                                <td class="td-value">10k-20K Per month (no bar for right candidate)</td>
-                            </tr>
-                            <tr class="trow">
-                                <td class="td-name">Description</td>
-                                <td class="td-value">Handle Our Exiting clients and develop new market for our Banking Products like safe Lockers of Godrej . Increase sales revenue by sale of our Furniture Counting Machine and other products.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="job-apply-btn-c">
-                        <button class="job-apply-btn">Apply Now</button>
-                    </div>
+                <div class="job-application-form-c">
+                    <p class="job-application-note">Please fill all the details correctly</p>
+                    <form class="job-application-form" action="/apply" method="post" enctype="multipart/form-data">
+                        <div class="job-form-input-c">
+                            <label class="job-form-input-label" for="position">Applying for</label>
+                            <input class="job-form-input-area" type="text" id="position" name="position" placeholder=""
+                                readonly />
+                        </div>
+                        <div class="job-form-input-c">
+                            <label class="job-form-input-label" for="name">Name<span aria-label="required"
+                                    class="red_star">*</span></label>
+                            <input class="job-form-input-area" type="text" id="name" name="name" placeholder="Name"
+                                autocomplete="given-name" required />
+                        </div>
+                        <div class="job-form-input-c">
+                            <label class="job-form-input-label" for="email">E-mail id<span aria-label="required"
+                                    class="red_star">*</span></label>
+                            <input class="job-form-input-area" type="email" id="email" name="email" placeholder="Email"
+                                autocomplete='off' required />
+                        </div>
+                        <div class="job-form-input-c">
+                            <label class="job-form-input-label" for="phone">Phone number<span aria-label="required"
+                                    class="red_star">*</span></label>
+                            <input class="job-form-input-area" type="tel" id="phone" name="phone"
+                                placeholder="Phone number" autocomplete='off' required />
+                        </div>
+                        <div class="job-form-input-c">
+                            <label class="job-form-input-label" for="qualification">Highest qualification<span
+                                    aria-label="required" class="red_star">*</span></label>
+                            <select class="job-form-input-area" name="qualification" id="qualification">
+                                <option value="12th pass">Diploma</option>
+                                <option value="graduate">Graduate</option>
+                                <option value="post-graduate">Post-graduate</option>
+                                <option value="phd">PhD</option>
+                            </select>
+                        </div>
+                        <div class="job-form-input-c">
+                            <label class="job-form-input-label" for="degree">Degree<span aria-label="required"
+                                    class="red_star">*</span></label>
+                            <input class="job-form-input-area" type="text" id="degree" name="degree"
+                                placeholder="Degree & certificate" autocomplete='off' required />
+                        </div>
+                        <div class="job-form-input-c">
+                            <label class="job-form-input-label" for="cv">Upload latest resume : <span
+                                    aria-label="required" class="red_star">*</span></label>
+                            <input class="job-form-input-area" onchange="fileValidation()" type="file" id="cv"
+                                name="cv" />
+                        </div>
+                        <div class="job-form-submit-btn-c">
+                            <button class="job-form-submit-btn" type="button"
+                                onclick="applicationSubmit()">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    <div class="res-msg-c">
+        <i id="job-res-msg" class="fa-solid"></i>
+        <p class="res-msg"></p>
+    </div>
     <%- include("partials/footer.ejs"); %>

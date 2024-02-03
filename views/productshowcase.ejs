@@ -8,10 +8,9 @@
                     </div>
                     <div class="pd-image-sub-c">
                         <div class="pd-sub-img-c">
-                            <img class="pd-sub-img" src="<%= product[0].images[0]%>" alt="" />
-                            <img class="pd-sub-img" src="<%= product[0].images[1]%>" alt="" />
-                            <img class="pd-sub-img" src="<%= product[0].images[2]%>" alt="" />
-                            <img class="pd-sub-img" src="<%= product[0].images[3]%>" alt="" />
+                            <% for (let i=0; i<product[0].images.length; i++) {%>
+                            <img class="pd-sub-img" src="<%= product[0].images[i]%>" alt="" />
+                            <%}%>
                         </div>
                     </div>
                 </div>
@@ -22,7 +21,7 @@
                         </p>
                     </div>
                     <div class="product-status-c">
-                        <p class="product-stock-status">
+                        <p class="product-stock-status" style="color:<%= product[0].in_stock==0 ? 'red' : 'green'%>">
                             <%= product[0].in_stock>0 ? "In Stock" : "Out of stock" %>
                         </p>
                         <p class="product-rating-status">Rating <span>
@@ -87,23 +86,23 @@
                             <tbody>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Name</td>
-                                    <td class="pd-td-value">fbfck bciuchic sdiusci csdhsc oc jsiosc</td>
+                                    <td class="pd-td-value"><%= product[0].p_name%></td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Colour</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].color%></td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Material</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].material %></td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Dimensions</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%=product[0].dimension[0]%> L &times <%= product[0].dimension[1] %> W &times <%= product[0].dimension[2]%> H centimeter</td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Weight Limit</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].weight_limit %> Kgs</td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Sutable for</td>
@@ -111,7 +110,7 @@
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Number of wheels</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].wheels %></td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Net Quantity</td>
@@ -119,7 +118,7 @@
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Item weight</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].item_weight %> grams</td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Installation type</td>
@@ -127,15 +126,15 @@
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Assembly required</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].assembly_required %></td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Brand</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].brand %></td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Model number</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].model_number %></td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Item code</td>
@@ -143,11 +142,11 @@
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">Warranty</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].warranty %></td>
                                 </tr>
                                 <tr class="pd-tr">
                                     <td class="pd-td-name">In the box</td>
-                                    <td class="pd-td-value"></td>
+                                    <td class="pd-td-value"><%= product[0].in_box %></td>
                                 </tr>
                             </tbody>
                         </table>

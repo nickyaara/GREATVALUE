@@ -105,3 +105,8 @@
     padding: .2rem 0;
 }
 
+.error-msg {
+    color: red;
+    border: 2px solid red;
+    padding: 0 2px;
+}

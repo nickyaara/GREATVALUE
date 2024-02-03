@@ -44,6 +44,7 @@
     margin: 1rem .5rem;
     width: 60px;
     height: 60px;
+    cursor: pointer;
 }
 
 .pd-abstract-c {
@@ -238,6 +239,11 @@
     .pd-image-main-c {
         width: 300px;
         height: 300px;
+    }
+    .pd-sub-img-c {
+        overflow: scroll;
+        justify-content: normal;
+        width: 300px;
     }
     .pd-details-c,.pd-description-c {
         max-width: 100%;

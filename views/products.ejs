@@ -30,26 +30,20 @@
                         <div class="filter-sub-heading-c">
                             <p class="filter-sub-heading">Shop by Brands</p>
                         </div>
-                        <div class="filter-option-holding-c">
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="greatvalue" name="greatvalue" />
-                                <label for="greatvalue">Great Value</label>
-                            </div>
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="godrej" name="godrej" />
-                                <label for="godrej">Godrej</label>
-                            </div>
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="gd" name="gd" />
-                                <label for="gd">G&D</label>
-                            </div>
+                        <div id="brand-filter" class="filter-option-holding-c">
+                            <% for(let i=0; i<brands.length;i++) {%>
+                                <div class="filter-option-c">
+                                    <input type="checkbox" id='<%=brands[i].brand%>' name='<%=brands[i].brand%>' onclick="filterList()" value='<%=brands[i].brand%>'/>
+                                    <label for='<%=brands[i].brand%>'><%=brands[i].brand%></label>
+                                </div>
+                                <%}%>
                         </div>
                     </div>
                     <div class="filter-sub-c">
                         <div class="filter-sub-heading-c">
                             <p class="filter-sub-heading">Shop by Category</p>
                         </div>
-                        <div class="filter-option-holding-c">
+                        <div id="category-filter" class="filter-option-holding-c">
                             <div class="filter-option-c">
                                 <input type="checkbox" id="officechair" name="officechair" />
                                 <label for="officechair">Office Chair</label>
@@ -80,7 +74,7 @@
                         <div class="filter-sub-heading-c">
                             <p class="filter-sub-heading">Price range</p>
                         </div>
-                        <div class="filter-option-holding-c">
+                        <div id="price-filter" class="filter-option-holding-c">
                             <div class="filter-option-c">
                                 <input type="checkbox" id="299-999" name="299-999" />
                                 <label for="299-999">299-999</label>

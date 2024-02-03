@@ -1,0 +1,56 @@
+<%- include("partials/header.ejs"); %>
+<div class="job-application-s">
+    <div class="job-application-c">
+        <div class="job-application-heading-c">
+            <p class="job-application-heading">Application form</p>
+        </div>
+        <div class="job-application-form-c">
+            <p class="job-application-note">Please fill all the details correctly</p>
+            <form class="job-application-form">
+                <div class="job-form-input-c">
+                    <label class="job-form-input-label" for="name">Name<span aria-label="required"
+                            class="red_star">*</span></label>
+                    <input class="job-form-input-area" type="text" id="name" name="name"
+                        placeholder="Name" autocomplete="given-name" required />
+                </div>
+                <div class="job-form-input-c">
+                    <label class="job-form-input-label" for="email">E-mail id<span aria-label="required"
+                            class="red_star">*</span></label>
+                    <input class="job-form-input-area" type="email" id="email" name="email"
+                        placeholder="Email" autocomplete='off' required />
+                </div>
+                <div class="job-form-input-c">
+                    <label class="job-form-input-label" for="phone">Phone number<span aria-label="required"
+                            class="red_star">*</span></label>
+                    <input class="job-form-input-area" type="tel" id="phone" name="phone"
+                        placeholder="Phone number" autocomplete='off' required />
+                </div>
+                <div class="job-form-input-c">
+                    <label class="job-form-input-label" for="qualification">Highest qualification<span aria-label="required"
+                            class="red_star">*</span></label>
+                            <select class="job-form-input-area" name="qualification" id="qualification">
+                                <option value="12th pass">12th Pass</option>
+                                <option value="graduate">Graduate</option>
+                                <option value="post-graduate">Post-graduate</option>
+                                <option value="phd">PhD</option>
+                              </select>
+                </div>
+                <div class="job-form-input-c">
+                    <label class="job-form-input-label" for="degree">Degree<span aria-label="required"
+                            class="red_star">*</span></label>
+                    <input class="job-form-input-area" type="text" id="degree" name="degree"
+                        placeholder="Degree & certificate" autocomplete='off' required />
+                </div>
+                <div class="job-form-input-c">
+                    <label class="job-form-input-label" for="cv">Upload latest resume : <span aria-label="required"
+                            class="red_star">*</span></label>
+                    <input class="job-form-input-area" type="file" id="cv" name="cv" />
+                </div>
+                <div class="job-form-submit-btn-c">
+                    <button class="job-form-submit-btn" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("partials/footer.ejs"); %>

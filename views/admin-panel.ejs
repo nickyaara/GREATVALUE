@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GV-Admin_panel</title>
+  <link rel="stylesheet" type="text/css" href="/styles/controlpanel.css" />
+  <script src="https://kit.fontawesome.com/e7764cfd68.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="admin-page-c">
+    <!-- Option tray with button to open different functionality -->
+    <div class="option-tray-c">
+      <div class="gv-logo-c">
+        <img src="/images/great-value-trademart.png" alt="great-value-trademart" />
+      </div>
+      <div class="option-tray-links-c">
+        <div class="option-link-c">
+          <p onclick="showSection('op-1')" class="option-link">Dashboard</p>
+        </div>
+        <div class="option-link-c">
+          <p id="option-link-0" onclick="toggleOption(this.id)" class="option-link">Products
+            <i id="up-arrow-0" class="fa-solid fa-angle-up up-arrow"></i>
+            <i id="down-arrow-0" class="fa-solid fa-angle-down"></i>
+          </p>
+          <ul id="option-0" class="option hide">
+            <li onclick="showSection('op-2')">Add product</li>
+            <li>Edit product</li>
+            <li>Delete product</li>
+          </ul>
+        </div>
+        <div class="option-link-c">
+          <p id="option-link-1" onclick="toggleOption(this.id)" class="option-link">Jobs
+            <i id="up-arrow-1" class="fa-solid fa-angle-up up-arrow"></i>
+            <i id="down-arrow-1" class="fa-solid fa-angle-down"></i>
+          </p>
+          <ul id="option-1" class="option hide">
+            <li onclick="showSection('op-3')">Add job</li>
+            <li>Edit job</li>
+            <li>Delete job</li>
+          </ul>
+        </div>
+        <div class="option-link-c">
+          <p id="option-link-2" onclick="toggleOption(this.id)" class="option-link">Offer
+            <i id="up-arrow-2" class="fa-solid fa-angle-up up-arrow"></i>
+            <i id="down-arrow-2" class="fa-solid fa-angle-down"></i>
+          </p>
+          <ul id="option-2" class="option hide">
+            <li>Add offer</li>
+            <li>Edit offer</li>
+            <li>Delete offer</li>
+          </ul>
+        </div>
+        <div class="option-link-c">
+          <p id="option-link-3" onclick="toggleOption(this.id)" class="option-link">Orders
+            <i id="up-arrow-3" class="fa-solid fa-angle-up up-arrow"></i>
+            <i id="down-arrow-3" class="fa-solid fa-angle-down"></i>
+          </p>
+          <ul id="option-3" class="option hide">
+            <li>Order recieved</li>
+            <li>Pending order</li>
+            <li>Order delivered</li>
+          </ul>
+        </div>
+        <div class="option-link-c">
+          <p class="option-link">Users</p>
+        </div>
+      </div>
+    </div>
+    <!-- Admin profile display bar HTML code -->
+    <div class="admin-profile-c">
+      <div class="search-bar-c">
+        <form name="admin-search" action="/admin-search" method="post">
+          <input id="admin-search-box" class="admin-search-input" type="search" placeholder="Search.."
+            aria-label="Search through site content" name="search_input" required>
+          <button class="admin-search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+      <div class="admin-details-c">
+        <div class="admin-name-display-c">
+          <p class="admin-name">Nitin Shukla</p>
+          <p class="user-type">Adminstrator (GreatValue)</p>
+        </div>
+        <button id="admin-Logout" class="admin-logout-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+      </div>
+    </div>
+    <!-- Notification bar HTML code -->
+    <div class="notification-c">
+      <div class="notification-card-c">
+        <div class="notification-card-content-c">
+          <p class="result-value">18</p>
+          <p class="value-tag">Delaer Enquiry</p>
+        </div>
+      </div>
+      <div class="notification-card-c">
+        <div class="notification-card-content-c">
+          <p class="result-value">18</p>
+          <p class="value-tag">Delaer Enquiry</p>
+        </div>
+      </div>
+      <div class="notification-card-c">
+        <div class="notification-card-content-c">
+          <p class="result-value">18</p>
+          <p class="value-tag">Delaer Enquiry</p>
+        </div>
+      </div>
+      <div class="notification-card-c">
+        <div class="notification-card-content-c">
+          <p class="result-value">18</p>
+          <p class="value-tag">Delaer Enquiry</p>
+        </div>
+      </div>
+    </div>
+    <!-- Admin control panel window HTML code -->
+    <div id="admin-window" class="admin-editing-window-c">
+      <!-- Admin dashboard HTML section id=1 -->
+      <div id="op-1" class="dashboard-s">
+        <div class="dashboard-heading-c">
+          <p class="dashboard-heading">Dashboard</p>
+        </div>
+        <div class="card-holding-c">
+          <div class="dashboard-card">
+            <div class="card-heading-c">
+              <p class="card-heading">Products</p>
+            </div>
+            <div class="report-c">
+              <table class="report-table">
+                <tr>
+                  <td class="td-name">Total product</td>
+                  <td class="td-value">456</td>
+                </tr>
+                <tr>
+                  <td class="td-name">Product category</td>
+                  <td class="td-value">6</td>
+                </tr>
+                <tr>
+                  <td class="td-name">Total product sold</td>
+                  <td class="td-value">1456</td>
+                </tr>
+                <tr>
+                  <td class="td-name">Pending delivery</td>
+                  <td class="td-value">46</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="dashboard-card">
+            <div class="card-heading-c">
+              <p class="card-heading">Dealer Enquiry</p>
+            </div>
+            <div class="report-c">
+              <table class="report-table">
+                <tr>
+                  <td class="td-name">Total Enquiry</td>
+                  <td class="td-value">16</td>
+                </tr>
+                <tr>
+                  <td class="td-name">Enquiry resolved</td>
+                  <td class="td-value">15</td>
+                </tr>
+                <tr>
+                  <td class="td-name">Enquiry pending</td>
+                  <td class="td-value">1</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add product section html code section id=2 -->
+      <div id="op-2" class="add-product-c">
+        <div class="add-product-heading-c">
+          <p class="add-product-heading">Add new product</p>
+        </div>
+        <form id="add-product-form" class="add-product-form">
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_name">Product name : </label>
+            <input class="add-product-form-input" type="text" id="productName" name="p_name" placeholder="Product name"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_quantity">Product Quantity : </label>
+            <input class="add-product-form-input" type="number" id="productQuantity" name="p_quantity" placeholder="Product quantity"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_rating">Product rating : </label>
+            <input class="add-product-form-input" type="number" id="productRating" name="p_rating" placeholder="Product rating"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_sp">Product selling price : </label>
+            <input class="add-product-form-input" type="number" id="productSp" name="p_sp" placeholder="Product selling price"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_mrp">Product MRP : </label>
+            <input class="add-product-form-input" type="number" id="productMrp" name="p_mrp" placeholder="Product MRP"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_feature_1">Product feature : </label>
+            <input class="add-product-form-input" type="text" id="productFeatureOne" name="p_feature_1" placeholder="Product feature 1"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productFeatureTwo" name="p_feature_2" placeholder="Product feature 2"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productFeatureThree" name="p_feature_3" placeholder="Product feature 3"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productFeatureFour" name="p_feature_4" placeholder="Product feature 4"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productFeatureFive" name="p_feature_5" placeholder="Product feature 5"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_color">Product Colour : </label>
+            <input class="add-product-form-input" type="text" id="productColor" name="p_color" placeholder="Product Colour"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_material">Product material : </label>
+            <input class="add-product-form-input" type="text" id="productMaterial" name="p_material" placeholder="Product material"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_dimension">Product dimension : </label>
+            <input class="add-product-form-input" type="number" id="productLength" name="p_length" placeholder="Product length in cm"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="number" id="productWidth" name="p_width" placeholder="Product width in cm"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="number" id="productHeight" name="p_height" placeholder="Product height in cm"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_weight_limit">Product weight limit : </label>
+            <input class="add-product-form-input" type="text" id="productWeightLimit" name="p_weight_limit" placeholder="Product weight limit"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_suitable">Product suitable for : </label>
+            <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable" placeholder="Product suitable for.."
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable" placeholder="Product suitable for.."
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable" placeholder="Product suitable for.."
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable" placeholder="Product suitable for.."
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_wheel">Total wheels : </label>
+            <input class="add-product-form-input" type="number" id="productWheel" name="p_wheel" placeholder="Total wheel"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="item1">Product weight : </label>
+            <input class="add-product-form-input" type="number" id="productWeight" name="p_weight" placeholder="Product weight"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_category">Category : </label>
+            <fieldset class="checkbox">
+              <div class="checkbox-c">
+                <input class="checkbox" type="checkbox" id="item1" name="item1"
+                    value="Office chair" />
+                <label for="item1">Office Chair</label>
+            </div>
+            <div class="checkbox-c">
+              <input class="checkbox" type="checkbox" id="item2" name="item2"
+                  value="Office table" />
+              <label for="item1">Office table</label>
+          </div>
+            </fieldset>
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_assembly">Assembly required : </label>
+            <input class="add-product-form-input" type="text" id="productAssembly" name="p_assembly" placeholder="Assembly required"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_brand">Product brand : </label>
+            <input class="add-product-form-input" type="text" id="productBrand" name="p_brand" placeholder="Product brand"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_model">Product model number : </label>
+            <input class="add-product-form-input" type="text" id="productModel" name="p_model" placeholder="Product model number"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_warranty">Warranty : </label>
+            <input class="add-product-form-input" type="text" id="productWarranty" name="p_warranty" placeholder="Warranty"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="in_box">In the box : </label>
+            <input class="add-product-form-input" type="text" id="inBox" name="in_box" placeholder="In the box"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="p_description1">Product description : </label>
+            <input class="add-product-form-input" type="text" id="productDescriptioOne" name="p_description1" placeholder="Product description 1"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioTwo" name="p_description2" placeholder="Product description 2"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioThree" name="p_description3" placeholder="Product description 3"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioFour" name="p_description4" placeholder="Product description 4"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="power">Power required : </label>
+            <input class="add-product-form-input" type="text" id="power" name="power" placeholder="Power required?"
+              autocomplete="off" required />
+          </div>
+          <div class="add-product-form-input-c">
+            <label class="add-product-form-input-label" for="image1">Upload images : </label>
+            <input class="add-product-form-input" type="file" id="imageOne" name="image1"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="file" id="imageTwo" name="image2"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="file" id="imageThree" name="image3"
+              autocomplete="off" required />
+              <input class="add-product-form-input" type="file" id="imageFour" name="image4"
+              autocomplete="off" required />
+          </div>
+        </form>
+      </div>
+      <!-- ADD job section html code section id=5 -->
+      <div id="op-3" class="add-job-c">
+        <div class="add-job-heading-c">
+          <p class="add-job-heading">Add new job</p>
+        </div>
+        <form id="add-job-form" class="add-job-form">
+          <div class="add-job-form-input-c">
+            <label class="add-job-form-input-label" for="job_title">Job Title : </label>
+            <input class="add-job-form-input" type="text" id="jobTitle" name="job_title" placeholder="Job title"
+              autocomplete="off" required />
+          </div>
+          <div class="add-job-form-input-c">
+            <label class="add-job-form-input-label" for="experience">Experience : </label>
+            <input class="add-job-form-input" type="text" id="experience" name="experience" placeholder="Experience"
+              autocomplete="off" required />
+          </div>
+          <div class="add-job-form-input-c">
+            <label class="add-job-form-input-label" for="job_location">Job location : </label>
+            <input class="add-job-form-input" type="text" id="jobLocation" name="job_location"
+              placeholder="Job location" autocomplete="off" required />
+          </div>
+          <div class="add-job-form-input-c">
+            <label class="add-job-form-input-label" for="salary">Salary : </label>
+            <input class="add-job-form-input" type="text" id="salary" name="salary" placeholder="Salary"
+              autocomplete="off" required />
+          </div>
+          <div class="add-job-form-input-c">
+            <label class="add-job-form-input-label" for="description">Description : </label>
+            <textarea class="add-job-form-input" type="text" id="description" name="description"
+              placeholder="Job Description" autocomplete="off" required></textarea>
+          </div>
+          <div class="add-job-form-submit-btn-c">
+            <button class="add-job-form-submit-btn" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script src="/jscript/admin.js"></script>
+</body>
+
+</html>

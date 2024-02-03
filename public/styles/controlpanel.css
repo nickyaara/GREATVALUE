@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.admin-page-c {
+    background-color: #fff7ed;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-template-rows: 70px 140px auto;
+    padding: 1rem;
+    gap: 10px;
+}
+
+/* Option tray CSS */
+
+.option-tray-c {
+    box-shadow: 2px 2px 8px lightgray;
+    border-radius: 8px;
+    background-color: white;
+    padding: 1rem;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+.gv-logo-c {
+    margin: auto;
+    padding: 1.5rem;
+    background-color: white;
+}
+
+.option-tray-links-c {
+    margin: 1rem .5rem;
+}
+
+.option-link-c {
+    border-bottom: 2px solid lightgray;
+    margin: .8rem 0;
+    cursor: pointer;
+}
+
+.option-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.option-link-c p i:first-child {
+    display: none;
+}
+
+.hide {
+    display: none;
+}
+
+.highlight {
+    color: #f78d3f;
+}
+.option li:hover {
+    color: #FF0000;
+}
+
+/* Admin-profile bar CSS */
+
+.admin-profile-c {
+    box-shadow: 2px 2px 8px lightgray;
+    border-radius: 8px;
+    background-color: white;
+    padding: 1rem;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar-c {
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.admin-search-input, .admin-search-btn {
+    border: none;
+    background-color: white;
+}
+
+.admin-details-c {
+    display: flex;
+}
+
+.admin-name-display-c {
+    padding: .3rem 1rem;
+}
+
+.admin-name, .user-type {
+    font-size: .8rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: right;
+}
+
+.admin-logout-btn {
+    border: none;
+    background-color: white;
+}
+
+/* Notification bar CSS */
+
+.notification-c {
+    box-shadow: 2px 2px 8px lightgray;
+    border-radius: 8px;
+    background-color: white;
+    padding: 1rem;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.notification-card-c {
+    border: 2px solid #73A839;
+    border-radius: 5px;
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.notification-card-content-c {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.value-tag, .result-value {
+    color: #46aef7;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.value-tag {
+    font-size: 1rem;
+}
+
+.result-value {
+    font-size: 3rem;
+}
+
+/* Admin editing window CSS */
+
+.admin-editing-window-c {
+    box-shadow: 2px 2px 8px lightgray;
+    border-radius: 8px;
+    background-color: white;
+    padding: 1rem;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+/* Dashboard CSS */
+
+.dashboard-heading-c {
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-bottom: 2px solid gray;
+}
+
+.dashboard-heading {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.card-holding-c {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 50px;
+}
+
+.dashboard-card {
+    box-shadow: 2px 2px 8px tomato;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.card-heading-c {
+    padding: .8rem 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.card-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.report-c {
+    margin: 1rem;
+}
+
+.td-name {
+    font-weight: 600;
+    padding-right: 1rem;
+    line-height: 2.5;
+}
+
+.td-value {
+    font-weight: 600;
+}
+
+/* Add product container CSS */
+
+.add-product-c {
+    display: none;
+}
+
+/* Add job container CSS */
+
+.add-job-c {
+    margin: 1.5rem 0;
+    display: none;
+}
+
+.add-job-heading-c {
+    border-bottom: 2px solid lightgray;
+}
+
+.add-job-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.add-job-form {
+    /* border: 1px solid gray; */
+    padding: 1rem 0;
+    margin: 1rem 0;
+    width: 500px;
+}
+
+.add-job-form-input-c {
+    margin: .8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-job-form-input-label {
+    font-weight: 600;
+}
+
+.add-job-form-input {
+    border: none;
+    border-bottom: 1px solid lightgray;
+    padding: .3rem;
+    width: 350px;
+}
+
+.add-job-form-input:focus {
+    outline: none;
+}
+
+.add-job-form-submit-btn-c {
+    margin: 1.5rem 0;
+    text-align: right;
+}
+
+.add-job-form-submit-btn {
+    border: 1px solid black;
+    margin: .8rem;
+    background-color: white;
+    font-weight: 600;
+    color: black;
+    padding: .5rem .8rem;
+}
+
+.add-job-form-submit-btn:focus {
+    background-color: black;
+    color: white;
+}
