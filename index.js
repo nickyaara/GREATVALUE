@@ -193,6 +193,46 @@ app.get("/contact", (req, res) => {
     res.render("contact.ejs");
 })
 
+app.get("/search",  async (req,res) => {
+    let keyWords = req.query.search_input;
+    let keyWordsArray = keyWords.split(" ");
+    let queryArray = keyWordsArray.map(item => `'${item}'`);
+    let stringForName = `(ARRAY[${queryArray}])`;
+    // console.log(stringForName);
+    try {
+        const searchResult = await db.query(`SELECT * FROM products 
+        WHERE EXISTS ( 
+            SELECT 1 
+            FROM unnest(string_to_array(products.keywords, ' ')) AS word 
+            WHERE word = ANY${stringForName}) 
+            ORDER BY ( 
+                SELECT COUNT(*) 
+                FROM unnest(string_to_array(products.keywords, ' ')) AS word 
+                WHERE word = ANY${stringForName}) DESC`);
+        const brandArray = await db.query(`SELECT DISTINCT brand FROM products 
+        WHERE EXISTS (
+            SELECT 1
+            FROM unnest(string_to_array(products.keywords, ' ')) AS word
+            WHERE word = ANY${stringForName}
+        )`);
+        // console.log(searchResult.rows);
+        res.render("products.ejs", { data: searchResult.rows, brands: brandArray.rows });
+    } catch(err) {
+        console.log(err.message);
+    }
+})
+
+app.get("/products/category/:type", async (req,res) => {
+    const value=req.params.type;
+    try {
+        const categoryResult = await db.query(`SELECT * FROM products WHERE category='${value}'`);
+        const brandArray = await db.query(`SELECT DISTINCT brand FROM products WHERE category='${value}'`);
+        res.render("products.ejs", { data: categoryResult.rows, brands: brandArray.rows });
+    } catch(err){
+        console.log(err.message);
+    }
+})
+
 app.get("/products", async (req, res) => {
     try {
         const cardValue = await db.query("SELECT id, images, p_name, selling_price, mrp, brand FROM products");

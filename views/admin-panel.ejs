@@ -31,8 +31,7 @@
           </p>
           <ul id="option-0" class="option hide">
             <li onclick="showSection('op-2')">Add product</li>
-            <li>Edit product</li>
-            <li>Delete product</li>
+            <li onclick="showSection('op-3')">Edit product</li>
           </ul>
         </div>
         <div class="option-link-c">
@@ -41,9 +40,8 @@
             <i id="down-arrow-1" class="fa-solid fa-angle-down"></i>
           </p>
           <ul id="option-1" class="option hide">
-            <li onclick="showSection('op-3')">Add job</li>
-            <li>Edit job</li>
-            <li>Delete job</li>
+            <li onclick="showSection('op-4')">Add job</li>
+            <li onclick="showSection('op-5')">Edit job</li>
           </ul>
         </div>
         <div class="option-link-c">
@@ -174,167 +172,280 @@
         </div>
       </div>
       <!-- Add product section html code section id=2 -->
-      <div id="op-2" class="add-product-c">
-        <div class="add-product-heading-c">
-          <p class="add-product-heading">Add new product</p>
+      <div id="op-2" class="option-c">
+        <div class="option-heading-c">
+          <p class="option-heading">Add new product</p>
         </div>
         <form id="add-product-form" class="add-product-form">
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_name">Product name : </label>
-            <input class="add-product-form-input" type="text" id="productName" name="p_name" placeholder="Product name"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productName" name="p_name"
+                placeholder="Product name" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_quantity">Product Quantity : </label>
-            <input class="add-product-form-input" type="number" id="productQuantity" name="p_quantity" placeholder="Product quantity"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="number" id="productQuantity" name="p_quantity"
+                placeholder="Product quantity" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_rating">Product rating : </label>
-            <input class="add-product-form-input" type="number" id="productRating" name="p_rating" placeholder="Product rating"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="number" id="productRating" name="p_rating"
+                placeholder="Product rating" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_sp">Product selling price : </label>
-            <input class="add-product-form-input" type="number" id="productSp" name="p_sp" placeholder="Product selling price"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="number" id="productSp" name="p_sp"
+                placeholder="Product selling price" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_mrp">Product MRP : </label>
-            <input class="add-product-form-input" type="number" id="productMrp" name="p_mrp" placeholder="Product MRP"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="number" id="productMrp" name="p_mrp" placeholder="Product MRP"
+                autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_feature_1">Product feature : </label>
-            <input class="add-product-form-input" type="text" id="productFeatureOne" name="p_feature_1" placeholder="Product feature 1"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productFeatureTwo" name="p_feature_2" placeholder="Product feature 2"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productFeatureThree" name="p_feature_3" placeholder="Product feature 3"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productFeatureFour" name="p_feature_4" placeholder="Product feature 4"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productFeatureFive" name="p_feature_5" placeholder="Product feature 5"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productFeatureOne" name="p_feature_1"
+                placeholder="Product feature 1" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productFeatureTwo" name="p_feature_2"
+                placeholder="Product feature 2" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productFeatureThree" name="p_feature_3"
+                placeholder="Product feature 3" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productFeatureFour" name="p_feature_4"
+                placeholder="Product feature 4" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productFeatureFive" name="p_feature_5"
+                placeholder="Product feature 5" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_color">Product Colour : </label>
-            <input class="add-product-form-input" type="text" id="productColor" name="p_color" placeholder="Product Colour"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productColor" name="p_color"
+                placeholder="Product Colour" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_material">Product material : </label>
-            <input class="add-product-form-input" type="text" id="productMaterial" name="p_material" placeholder="Product material"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productMaterial" name="p_material"
+                placeholder="Product material, eg metal, plastic etc.." autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_dimension">Product dimension : </label>
-            <input class="add-product-form-input" type="number" id="productLength" name="p_length" placeholder="Product length in cm"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="number" id="productWidth" name="p_width" placeholder="Product width in cm"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="number" id="productHeight" name="p_height" placeholder="Product height in cm"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="number" id="productLength" name="p_length"
+                placeholder="Product length in cm" autocomplete="off" required />
+              <input class="add-product-form-input" type="number" id="productWidth" name="p_width"
+                placeholder="Product width in cm" autocomplete="off" required />
+              <input class="add-product-form-input" type="number" id="productHeight" name="p_height"
+                placeholder="Product height in cm" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_weight_limit">Product weight limit : </label>
-            <input class="add-product-form-input" type="text" id="productWeightLimit" name="p_weight_limit" placeholder="Product weight limit"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productWeightLimit" name="p_weight_limit"
+                placeholder="Max weight product can hold in Kg.." autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_suitable">Product suitable for : </label>
-            <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable" placeholder="Product suitable for.."
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable" placeholder="Product suitable for.."
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable" placeholder="Product suitable for.."
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable" placeholder="Product suitable for.."
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable"
+                placeholder="Product suitable for, eg Office, living room etc.." autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable"
+                placeholder="Product suitable for, eg Office, living room etc.." autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable"
+                placeholder="Product suitable for, eg Office, living room etc.." autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productSuitable" name="p_suitable"
+                placeholder="Product suitable for, eg Office, living room etc.." autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_wheel">Total wheels : </label>
-            <input class="add-product-form-input" type="number" id="productWheel" name="p_wheel" placeholder="Total wheel"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="number" id="productWheel" name="p_wheel"
+                placeholder="Total wheel" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="item1">Product weight : </label>
-            <input class="add-product-form-input" type="number" id="productWeight" name="p_weight" placeholder="Product weight"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="number" id="productWeight" name="p_weight"
+                placeholder="Product weight in grams" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_category">Category : </label>
-            <fieldset class="checkbox">
-              <div class="checkbox-c">
-                <input class="checkbox" type="checkbox" id="item1" name="item1"
-                    value="Office chair" />
-                <label for="item1">Office Chair</label>
+            <div class="multiple-input-c">
+              <fieldset class="checkbox">
+                <div class="checkbox-c">
+                  <input class="checkbox" type="checkbox" id="item1" name="item1" value="chair" />
+                  <label for="item1">Chair</label>
+                </div>
+                <div class="checkbox-c">
+                  <input class="checkbox" type="checkbox" id="item2" name="item2" value="Table" />
+                  <label for="item2">Table</label>
+                </div>
+                <div class="checkbox-c">
+                  <input class="checkbox" type="checkbox" id="item3" name="item3" value="Storage unit" />
+                  <label for="item3">Storage unit</label>
+                </div>
+                <div class="checkbox-c">
+                  <input class="checkbox" type="checkbox" id="item4" name="item4" value="Sofa" />
+                  <label for="item4">Sofa</label>
+                </div>
+                <div class="checkbox-c">
+                  <input class="checkbox" type="checkbox" id="item5" name="item5" value="Safe and locker" />
+                  <label for="item5">Safe and locker</label>
+                </div>
+                <div class="checkbox-c">
+                  <input class="checkbox" type="checkbox" id="item6" name="item6" value="Currency handling product" />
+                  <label for="item6">Currency handling product</label>
+                </div>
+              </fieldset>
             </div>
-            <div class="checkbox-c">
-              <input class="checkbox" type="checkbox" id="item2" name="item2"
-                  value="Office table" />
-              <label for="item1">Office table</label>
-          </div>
-            </fieldset>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_assembly">Assembly required : </label>
-            <input class="add-product-form-input" type="text" id="productAssembly" name="p_assembly" placeholder="Assembly required"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productAssembly" name="p_assembly"
+                placeholder="Assembly required" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_brand">Product brand : </label>
-            <input class="add-product-form-input" type="text" id="productBrand" name="p_brand" placeholder="Product brand"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productBrand" name="p_brand"
+                placeholder="Product brand" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_model">Product model number : </label>
-            <input class="add-product-form-input" type="text" id="productModel" name="p_model" placeholder="Product model number"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productModel" name="p_model"
+                placeholder="Product model number" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_warranty">Warranty : </label>
-            <input class="add-product-form-input" type="text" id="productWarranty" name="p_warranty" placeholder="Warranty"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productWarranty" name="p_warranty"
+                placeholder="Warranty" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="in_box">In the box : </label>
-            <input class="add-product-form-input" type="text" id="inBox" name="in_box" placeholder="In the box"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="inBox" name="in_box" placeholder="In the box"
+                autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="p_description1">Product description : </label>
-            <input class="add-product-form-input" type="text" id="productDescriptioOne" name="p_description1" placeholder="Product description 1"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productDescriptioTwo" name="p_description2" placeholder="Product description 2"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productDescriptioThree" name="p_description3" placeholder="Product description 3"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="text" id="productDescriptioFour" name="p_description4" placeholder="Product description 4"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="productDescriptioOne" name="p_description1"
+                placeholder="Product description 1" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioTwo" name="p_description2"
+                placeholder="Product description 2" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioThree" name="p_description3"
+                placeholder="Product description 3" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioFour" name="p_description4"
+                placeholder="Product description 4" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioFive" name="p_description5"
+                placeholder="Product description 5" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioSix" name="p_description6"
+                placeholder="Product description 6" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioSeven" name="p_description7"
+                placeholder="Product description 7" autocomplete="off" required />
+              <input class="add-product-form-input" type="text" id="productDescriptioEight" name="p_description8"
+                placeholder="Product description 8" autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="power">Power required : </label>
-            <input class="add-product-form-input" type="text" id="power" name="power" placeholder="Power required?"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="text" id="power" name="power" placeholder="Power required?"
+                autocomplete="off" required />
+            </div>
           </div>
           <div class="add-product-form-input-c">
             <label class="add-product-form-input-label" for="image1">Upload images : </label>
-            <input class="add-product-form-input" type="file" id="imageOne" name="image1"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="file" id="imageTwo" name="image2"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="file" id="imageThree" name="image3"
-              autocomplete="off" required />
-              <input class="add-product-form-input" type="file" id="imageFour" name="image4"
-              autocomplete="off" required />
+            <div class="multiple-input-c">
+              <input class="add-product-form-input" type="file" id="imageOne" name="image1" autocomplete="off"
+                required />
+              <input class="add-product-form-input" type="file" id="imageTwo" name="image2" autocomplete="off"
+                required />
+              <input class="add-product-form-input" type="file" id="imageThree" name="image3" autocomplete="off"
+                required />
+              <input class="add-product-form-input" type="file" id="imageFour" name="image4" autocomplete="off"
+                required />
+              <input class="add-product-form-input" type="file" id="imageFive" name="image5" autocomplete="off"
+                required />
+              <input class="add-product-form-input" type="file" id="imageSix" name="image6" autocomplete="off"
+                required />
+            </div>
+          </div>
+          <div class="add-product-form-submit-btn-c">
+            <button class="add-product-form-submit-btn">Submit</button>
           </div>
         </form>
       </div>
-      <!-- ADD job section html code section id=5 -->
-      <div id="op-3" class="add-job-c">
-        <div class="add-job-heading-c">
-          <p class="add-job-heading">Add new job</p>
+      <!-- Edit product section html code section id=3 -->
+      <div id="op-3" class="option-c">
+        <div class="option-heading-c">
+          <p class="option-heading">Edit or delete product</p>
+        </div>
+        <div class="list-items-c">
+          <div class="list-search-c">
+            <div class="list-search-box">
+              <input id="product-list-search" class="list-search" type="search" placeholder="Search.."
+                aria-label="Search through site content" name="search_input" required>
+              <button class="list-search-btn" type="submit"><i
+                  class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+          </div>
+          <div class="product-list-items-c">
+            <table class="list-table">
+              <tr class="list-tr">
+                <th class="list-th list-a">S no.</th>
+                <th class="list-th list-b">Product name</th>
+                <th class="list-th list-c">Brand</th>
+                <th class="list-th list-d">Model number</th>
+                <th class="list-th list-e">Category</th>
+                <th class="list-th list-edit">Edit</th>
+                <th class="list-th list-delete">Delete</th>
+              </tr>
+              <tr class="list-tr">
+                <td class="list-td list-a">1</td>
+                <td class="list-td list-b">Neelkamal Chair</td>
+                <td class="list-td list-c">Neelkamal</td>
+                <td class="list-td list-d">Neel001</td>
+                <td class="list-td list-e">Chair</td>
+                <td class="list-td list-edit"><i class="fa-solid fa-pen-to-square" style="color: #FFD43B;"></i>
+                </td>
+                <td class="list-td list-delete"><i class="fa-solid fa-trash" style="color: #ec2213;"></i></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="product-edit-form-c"></div>
+      </div>
+      <!-- ADD job section html code section id=4 -->
+      <div id="op-4" class="option-c">
+        <div class="option-heading-c">
+          <p class="option-heading">Add new job</p>
         </div>
         <form id="add-job-form" class="add-job-form">
           <div class="add-job-form-input-c">
@@ -366,6 +477,44 @@
             <button class="add-job-form-submit-btn" type="submit">Submit</button>
           </div>
         </form>
+      </div>
+      <!-- Edit job section html code section id=5 -->
+      <div id="op-5" class="option-c">
+        <div class="option-heading-c">
+          <p class="option-heading">Edit or delete product</p>
+        </div>
+        <div class="list-items-c">
+          <div class="list-search-c">
+            <div class="list-search-box">
+              <input id="job-list-search" class="list-search" type="search" placeholder="Search.."
+                aria-label="Search through site content" name="search_input" required>
+              <button class="list-search-btn" type="submit"><i
+                  class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+          </div>
+          <div class="list-table-c">
+            <table class="list-table">
+              <tr class="list-tr">
+                <th class="list-th list-a">Job id.</th>
+                <th class="list-th list-b">Job title</th>
+                <th class="list-th list-c">Experience</th>
+                <th class="list-th list-d">Location</th>
+                <th class="list-th list-e">Salary</th>
+                <th class="list-th list-edit">Edit</th>
+                <th class="list-th list-delete">Delete</th>
+              </tr>
+              <tr class="list-tr">
+                <td class="list-td list-a">1</td>
+                <td class="list-td list-b">Field Sales executive</td>
+                <td class="list-td list-c">2-4 years</td>
+                <td class="list-td list-d">Jaipur, Udaipur</td>
+                <td class="list-td list-e">10-20k</td>
+                <td class="list-td list-edit"><i class="fa-solid fa-pen-to-square" style="color: #FFD43B;"></i>
+                </td>
+                <td class="list-td list-delete"><i class="fa-solid fa-trash" style="color: #ec2213;"></i></td>
+              </tr>
+            </table>
+          </div>
       </div>
     </div>
 

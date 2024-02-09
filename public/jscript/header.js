@@ -79,7 +79,9 @@ function toggleResponce(value) {
   }
 }
 
-// javascript code to send form data to server
+// product page filter and sort functionality code
+
+
 
 
 //Javascript code that respose to product card click and open detail productshowcase page

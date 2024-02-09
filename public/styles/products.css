@@ -39,10 +39,10 @@
     font-weight: 600;
 }
 
-.filter-reset {
+#filter-clear-link {
     font-weight: 600;
     color: tomato;
-    cursor: pointer;
+    text-decoration: none;
 } 
 
 .filter-sub-c {

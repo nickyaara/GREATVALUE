@@ -217,28 +217,54 @@
 
 /* Add product container CSS */
 
-.add-product-c {
-    display: none;
+.add-product-form {
+    margin: 2rem 1rem;
+    border: 1px solid lightgray;
+    padding: 1rem;
+}
+
+.add-product-form-input-c {
+    padding: .5rem 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.add-product-form-input-label {
+    font-weight: 600;
+    width: 200px;
+}
+
+.multiple-input-c {
+    display: flex;
+    flex-direction: column;
+}
+.multiple-input-c input {
+    margin-bottom: .4rem;
+}
+
+.add-product-form-input {
+    width: 400px;
+}
+
+.add-product-form-submit-btn-c {
+    padding: 3rem 0 2rem;
+}
+
+.add-product-form-submit-btn {
+    border: 1px solid black;
+    padding: .4rem .8rem;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+}
+.add-product-form-submit-btn:active {
+    background-color: black;
+    color: white;
 }
 
 /* Add job container CSS */
 
-.add-job-c {
-    margin: 1.5rem 0;
-    display: none;
-}
-
-.add-job-heading-c {
-    border-bottom: 2px solid lightgray;
-}
-
-.add-job-heading {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
 .add-job-form {
-    /* border: 1px solid gray; */
     padding: 1rem 0;
     margin: 1rem 0;
     width: 500px;
@@ -282,4 +308,85 @@
 .add-job-form-submit-btn:focus {
     background-color: black;
     color: white;
+}
+
+/* Edit option container CSS */
+
+.option-c {
+    margin: 1.5rem 0;
+    display: none;
+}
+
+.option-heading-c{
+    border-bottom: 2px solid lightgray;
+}
+
+.option-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.list-items-c {
+    margin: .5rem;
+    padding: .5rem;
+}
+
+.list-search-c {
+    margin: 1rem 0;
+    padding: .5rem 0;
+}
+
+.list-search-box {
+    display: inline-block;
+    padding: .4rem;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.list-search {
+    border: none;
+}
+
+.list-search:focus {
+    outline: none;
+}
+
+.list-search-btn {
+    border: none;
+    background-color: white;
+}
+
+.list-table, .list-tr, .list-th, .list-td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+.list-th, .list-td {
+    text-align: center;
+    padding: .2rem 0;
+}
+
+.list-a {
+    width: 60px;
+}
+
+.list-b {
+    width: 200px;
+}
+
+.list-c {
+    width: 200px;
+}
+
+.list-d {
+    width: 150px;
+}
+
+.list-e {
+    width: 200px;
+}
+
+.list-edit, .list-delete {
+    width: 60px;
 }
