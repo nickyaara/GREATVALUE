@@ -224,9 +224,11 @@ app.get("/search",  async (req,res) => {
 
 app.get("/products/category/:type", async (req,res) => {
     const value=req.params.type;
+    const result = value.replace(/_/g, " ");
+    // console.log(result);
     try {
-        const categoryResult = await db.query(`SELECT * FROM products WHERE category='${value}'`);
-        const brandArray = await db.query(`SELECT DISTINCT brand FROM products WHERE category='${value}'`);
+        const categoryResult = await db.query(`SELECT * FROM products WHERE category='${result}'`);
+        const brandArray = await db.query(`SELECT DISTINCT brand FROM products WHERE category='${result}'`);
         res.render("products.ejs", { data: categoryResult.rows, brands: brandArray.rows });
     } catch(err){
         console.log(err.message);
@@ -237,7 +239,9 @@ app.get("/products", async (req, res) => {
     try {
         const cardValue = await db.query("SELECT id, images, p_name, selling_price, mrp, brand FROM products");
         const brandArray = await db.query("SELECT DISTINCT brand FROM products");
-        res.render("products.ejs", { data: cardValue.rows, brands: brandArray.rows });
+        let minPrice = await db.query('SELECT MIN(selling_price) FROM products');
+        let maxPrice = await db.query('SELECT MAX(selling_price) FROM products');
+        res.render("products.ejs", { data: cardValue.rows, brands: brandArray.rows, minValue: minPrice.rows[0].min, maxValue: maxPrice.rows[0].max});
     } catch (err) {
         console.log(err);
     }
@@ -256,18 +260,32 @@ app.get('/products/:id', async function (req, res) {
 
 app.post('/products/filter', async (req,res) => {
     let checkedArray = req.body;
+    let sortValue = Number(req.body.sortValue);
+    let minPrice;
+    let maxPrice;
+    let categoryValue;
+    minPrice = req.body.minPriceValue?req.body.minPriceValue:1;
+    maxPrice =req.body.maxPriceValue?req.body.maxPriceValue:2000000;
+    if(req.body.categoriesValue.length){
+        categoryValue = req.body.categoriesValue.map(value => `'${value}'`);
+    } else {
+        categoryValue = "['Chair','Table','Storage unit','Sofa','Safe','Currency handling machine']";
+    }
+    const brandArray = checkedArray.brandValue.map(value => `'${value}'`);
+    const brandSearchString = brandArray.length>0 ? `AND brand ILIKE ANY(ARRAY[${brandArray}])`:'';
+    const categorySearchString = `(ARRAY[${categoryValue}])`;
+    const order = sortValue==2 || sortValue==3?'DESC':'';
+    const sortBy = sortValue==3?'stock_date':'selling_price';
+    let sortQuery = sortValue==0?"":`ORDER BY ${sortBy} ${order}`;
     try {
-        const filterData = await db.query(`SELECT * FROM products WHERE brand IN ($1,$2,$3)`,
-        [checkedArray[0],checkedArray[1],checkedArray[2]]);
-        // console.log(filterData.rows);
-        const brandArray = await db.query("SELECT DISTINCT brand FROM products");
-        res.render("products.ejs", { data: filterData.rows, brands: brandArray.rows });
+            const queryRes = await db.query(`SELECT id, images, p_name, selling_price, mrp, brand FROM products
+            WHERE category ILIKE ANY ${categorySearchString}
+            ${brandSearchString} AND selling_price BETWEEN ${minPrice} AND ${maxPrice} 
+            ${sortQuery}`);
+            res.json(queryRes.rows);
     }catch (err) {
         console.log(err);
     }
-    
-    // console.log(value);
-    // console.log(array);
 })
 
 app.listen(port, () => {

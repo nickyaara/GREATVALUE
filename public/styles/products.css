@@ -39,10 +39,10 @@
     font-weight: 600;
 }
 
-#filter-clear-link {
+.filter-reset {
     font-weight: 600;
     color: tomato;
-    text-decoration: none;
+    cursor: pointer;;
 } 
 
 .filter-sub-c {
@@ -62,6 +62,14 @@
 
 .filter-option-c {
     padding: .3rem 0;
+}
+
+.min-filter-c {
+    margin-bottom: .4rem;
+}
+
+.label-c {
+    margin-bottom: .2rem;
 }
 
 .product-display-c {
@@ -131,6 +139,10 @@
     padding: .5rem 0;
 }
 
+.m-product-filter-menu-c {
+    display: none;
+}
+
 @media only screen and (max-width: 530px) {
     .panel-display-c {
         display: none;
@@ -139,21 +151,88 @@
         display: none;
     }
     .m-product-filter-c {
-        display: flex;
+        display: block;
         position: fixed;
         bottom: 0;
         width: 100%;
-        /* border-top: 1px solid gray; */
+        border-top: 1px solid gray;
     }
-    .filter-link-c, .sort-link-c {
-        width: 50%;
+    .filter-link-c {
+        /* display: block;
+        position: fixed;
+        bottom: 0;
+        width: 100%; */
+        border-top: 1px solid gray;
         padding: 10px 5px;
         background-color: white;
     }
-    .filter-link, .sort-link {
+    .filter-link {
         text-align: center;
     }
     .filter-link-c:active, .sort-link-c:active {
         background-color: lightgray;
+    }
+    .m-product-filter-menu-c{
+        /* display: none; */
+        position: absolute;
+        bottom: 0;
+        background-color: white;
+        width: 100%;
+        border-top: 1px solid gray;
+    }
+    .m-product-filter-sub-upper-c{
+        padding: .5rem 1rem;
+        display: flex;
+        height: 400px;
+    }
+    .m-product-filter-option-c {
+        padding: .5rem 1rem;
+        border-right: 1px solid lightgrey;
+    }
+    .m-product-filter-heading-c {
+        border-bottom: 1px solid gray;
+    }
+    .m-product-filter-heading {
+        font-weight: 600;
+        padding: .4rem 0;
+    }
+    .m-product-filter-options-btn-c {
+        padding: .5rem;
+    }
+    .m-product-filter-option-btn {
+        padding: .5rem 0;
+        border-bottom: 1px solid lightgrey;
+        color: grey;
+    }
+    .m-product-filter-list-c{
+        padding: 1rem;
+    }
+    .m-product-filter-list-display-c {
+        padding: .5rem 0;
+        display: none;
+    }
+    .m-product-filter-list-option-c {
+        padding: .5rem 0;
+        border-bottom: 1px solid lightgrey;
+    }
+    .price-input {
+        margin: .5rem 1rem;
+    }
+    .input-radio {
+        margin: .5rem 0;
+    }
+    .m-product-filter-sub-lower-c {
+        border-top: 1px solid lightgrey;
+        display: flex;
+    }
+    .m-product-filter-action-btn-c {
+        padding: .4rem 0;
+        width: 50%;
+    }
+    .m-product-filter-action-btn {
+        text-align: center;
+    }
+    .m-product-filter-action-btn-c:active {
+        background-color: lightgoldenrodyellow;
     }
 }

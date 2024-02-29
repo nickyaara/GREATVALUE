@@ -3,29 +3,110 @@
         <div class="product-c">
             <div class="panel-display-c">
                 <div class="total-product-display-c">
-                    <P>Total Products <%= data.length%>
+                    <P>Total Products <span id="tCards"><%= data.length%></span>
                     </P>
                 </div>
                 <div class="product-sort-panel-c">
                     <label for="sort">Sort by:</label>
-                    <select name="sort" id="sort">
-                        <option value="low-to-high">Price: Low to High</option>
-                        <option value="high-to-low">Price: High to Low</option>
-                        <option value="new">What's new</option>
-                        <option value="trending">What's trending</option>
+                    <select name="sort" id="sort" onchange="formReq()">
+                        <option value="0">No Preference</option>
+                        <option value="1">Price: Low to High</option>
+                        <option value="2">Price: High to Low</option>
+                        <option value="3">What's new</option>
                     </select>
                 </div>
             </div>
+            <!-- mobile filter menu -->
             <div class="m-product-filter-c">
-                <div class="filter-link-c"><p class="filter-link">Filters</p></div>
-                <div class="sort-link-c"><p class="sort-link">Sort</p></div>
+            <div class="m-product-filter-menu-c">
+                <div class="m-product-filter-sub-upper-c">
+                    <div class="m-product-filter-option-c">
+                        <div class="m-product-filter-heading-c">
+                            <p class="m-product-filter-heading">Filters</p>
+                        </div>
+                        <div class="m-product-filter-options-btn-c">
+                            <p id="m-sec-1" class="m-product-filter-option-btn" onclick="toggleMenu('sec-1')">Brands</p>
+                            <p id="m-sec-2" class="m-product-filter-option-btn" onclick="toggleMenu('sec-2')">Category</p>
+                            <p id="m-sec-3" class="m-product-filter-option-btn" onclick="toggleMenu('sec-3')">Price</p>
+                            <p id="m-sec-4" class="m-product-filter-option-btn" onclick="toggleMenu('sec-4')">Sort</p>
+                        </div>
+                    </div>
+                    <div id="filter-window" class="m-product-filter-list-c">
+                        <div id="sec-1" class="m-product-filter-list-display-c">
+                            <% for(let i=0; i<brands.length;i++) {%>
+                            <div class="m-product-filter-list-option-c">
+                                <input type="checkbox" class="m-product-filter-brand" id='m-<%=brands[i].brand%>' name='<%=brands[i].brand%>'
+                                value='<%=brands[i].brand%>'' />
+                                <label for="m-<%=brands[i].brand%>"><%=brands[i].brand%></label>
+                            </div>
+                            <%}%>
+                        </div>
+                        <div id="sec-2" class="m-product-filter-list-display-c">
+                            <div class="m-product-filter-list-option-c">
+                                <input type="checkbox" class="m-product-filter-category" id="m-chair" name="Chair" value="Chair" />
+                                <label for="m-chair">Chair</label>
+                            </div>
+                            <div class="m-product-filter-list-option-c">
+                                <input type="checkbox" class="m-product-filter-category" id="m-table" name="Table" value="Table" />
+                                <label for="m-table">Table</label>
+                            </div>
+                            <div class="m-product-filter-list-option-c">
+                                <input type="checkbox" class="m-product-filter-category" id="m-storageunit" name="Storage unit" value="Storage unit" />
+                                <label for="m-storageunit">Storage unit</label>
+                            </div>
+                            <div class="m-product-filter-list-option-c">
+                                <input type="checkbox" class="m-product-filter-category" id="m-sofa" name="Sofa" value="Sofa" />
+                                <label for="m-sofa">Sofa</label>
+                            </div>
+                            <div class="m-product-filter-list-option-c">
+                                <input type="checkbox" class="m-product-filter-category" id="m-safe" name="Safe" value="Safe" />
+                                <label for="m-safe">Safe</label>
+                            </div>
+                            <div class="m-product-filter-list-option-c">
+                                <input type="checkbox" class="m-product-filter-category" id="m-chm" name="Currency handling machine" value="Currency handling machine" />
+                                <label for="m-chm">Currency handling machine</label>
+                            </div>
+                        </div>
+                        <div  id="sec-3" class="m-product-filter-list-display-c">
+                            <div class="m-product-filter-list-option-c">
+                                <input id="mMinPrice" type="number" class="price-input" placeholder="Minimum price">
+                                <input id="mMaxPrice" type="number" class="price-input" placeholder="Maximum price">
+                            </div>
+                        </div>
+                        <div id="sec-4" class="m-product-filter-list-display-c">
+                            <div class="m-product-filter-list-option-c">
+                                <input class="input-radio" type="radio" name="sort-type" value="0" id="0" checked="checked"/>
+                                <label for="0">No Preference</label><br>
+                                <input class="input-radio" type="radio" name="sort-type" value="1" id="1"/>
+                                <label for="1">Price-Low to High</label><br>
+                                <input class="input-radio" type="radio" name="sort-type" value="2" id="2"/>
+                                <label for="2">Price-High to Low</label><br>
+                                <input class="input-radio" type="radio" name="sort-type" value="3" id="3"/>
+                                <label for="3">What's new</label><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-product-filter-sub-lower-c">
+                    <div class="m-product-filter-action-btn-c">
+                        <p class="m-product-filter-action-btn">Close</p>
+                    </div>
+                    <div id="m-filter-apply-btn" class="m-product-filter-action-btn-c">
+                        <p class="m-product-filter-action-btn">Apply</p>
+                    </div>
+                </div>
+            </div>
+            
+                <div class="filter-link-c">
+                    <p class="filter-link">Filters/Sort</p>
+                </div>
             </div>
             <div class="product-main-c">
                 <div class="product-filter-c">
                     <div class="filter-heading-c">
                         <p class="filter-heading">Filters</p>
-                        <p class="filter-reset">
-                            <a id="filter-clear-link" href="/products">CLEAR ALL</a>
+                        <p class="filter-reset" onclick="resetAll()">
+                            CLEAR ALL
                         </p>
                     </div>
                     <div class="filter-sub-c">
@@ -35,8 +116,11 @@
                         <div id="brand-filter" class="filter-option-holding-c">
                             <% for(let i=0; i<brands.length;i++) {%>
                                 <div class="filter-option-c">
-                                    <input type="checkbox" id='<%=brands[i].brand%>' name='<%=brands[i].brand%>' onclick="filterList()" value='<%=brands[i].brand%>'/>
-                                    <label for='<%=brands[i].brand%>'><%=brands[i].brand%></label>
+                                    <input type="checkbox" class="brand-checkbox" id='<%=brands[i].brand%>' name='<%=brands[i].brand%>'
+                                         value='<%=brands[i].brand%>' onchange="formReq()" />
+                                    <label for='<%=brands[i].brand%>'>
+                                        <%=brands[i].brand%>
+                                    </label>
                                 </div>
                                 <%}%>
                         </div>
@@ -47,27 +131,27 @@
                         </div>
                         <div id="category-filter" class="filter-option-holding-c">
                             <div class="filter-option-c">
-                                <input type="checkbox" id="officechair" name="officechair" />
+                                <input type="checkbox" class="category-checkbox" id="officechair" name="officechair" value="Chair" onchange="formReq()"/>
                                 <label for="officechair">Office Chair</label>
                             </div>
                             <div class="filter-option-c">
-                                <input type="checkbox" id="officetable" name="officetable" />
+                                <input type="checkbox" class="category-checkbox" id="officetable" name="officetable" value="Table" onchange="formReq()"/>
                                 <label for="officetable">Office Table</label>
                             </div>
                             <div class="filter-option-c">
-                                <input type="checkbox" id="storageunit" name="storageunit" />
+                                <input type="checkbox" class="category-checkbox" id="storageunit" name="storageunit" value="Storage unit" onchange="formReq()"/>
                                 <label for="storageunit">Storage unit</label>
                             </div>
                             <div class="filter-option-c">
-                                <input type="checkbox" id="sofa" name="sofa" />
+                                <input type="checkbox" class="category-checkbox" id="sofa" name="sofa" value="Sofa" onchange="formReq()"/>
                                 <label for="sofa">Sofa</label>
                             </div>
                             <div class="filter-option-c">
-                                <input type="checkbox" id="safelocker" name="safelocker" />
+                                <input type="checkbox" class="category-checkbox" id="safelocker" name="safelocker" value="Safe" onchange="formReq()"/>
                                 <label for="safelocker">Safe and Lockers</label>
                             </div>
                             <div class="filter-option-c">
-                                <input type="checkbox" id="currencehandler" name="currencehandler" />
+                                <input type="checkbox" class="category-checkbox" id="currencehandler" name="currencehandler" value="Currency handling machine" onchange="formReq()"/>
                                 <label for="currencehandler">Currence handling machine</label>
                             </div>
                         </div>
@@ -77,38 +161,21 @@
                             <p class="filter-sub-heading">Price range</p>
                         </div>
                         <div id="price-filter" class="filter-option-holding-c">
-                            
                             <div class="filter-option-c">
-                                <input type="checkbox" id="299-999" name="299-999" />
-                                <label for="299-999">299-999</label>
-                            </div>
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="1000-4999" name="1000-4999" />
-                                <label for="1000-4999">1000-4999</label>
-                            </div>
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="5000-9999" name="5000-9999" />
-                                <label for="5000-9999">5000-9999</label>
-                            </div>
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="10000-19999" name="10000-19999" />
-                                <label for="10000-19999">10000-19999</label>
-                            </div>
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="20000-39999" name="20000-39999" />
-                                <label for="20000-39999">10000-19999</label>
-                            </div>
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="40000-69999" name="40000-69999" />
-                                <label for="40000-69999">40000-69999</label>
-                            </div>
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="70000-99999" name="70000-99999" />
-                                <label for="70000-99999">70000-99999</label>
-                            </div>
-                            <div class="filter-option-c">
-                                <input type="checkbox" id="100000a" name="100000a" />
-                                <label for="100000a">Above-100000</label>
+                                <div class="min-filter-c">
+                                    <div class="label-c">
+                                        <label for="min-price">Min</label>
+                                        <!-- <span id="min-price-value"></span> -->
+                                    </div>
+                                    <input type="number" name="min-price" id="min-price" onblur="formReq()" />
+                                </div>
+                                <div class="max-filter-c">
+                                    <div class="label-c">
+                                        <label for="max-price">Max</label>
+                                        <span id="max-price-value"></span>
+                                    </div>
+                                    <input type="number" name="max-price" id="max-price" onblur="formReq()" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -119,8 +186,7 @@
                         <% for (let i=0; i < data.length; i++) {%>
                             <div id="<%= data[i].id%>" class="product-card-c">
                                 <div class="product-image-c">
-                                    <img class="product-card-image" src="<%= data[i].images[0]%>"
-                                        alt="random image" />
+                                    <img class="product-card-image" src="<%= data[i].images[0]%>" alt="random image" />
                                 </div>
                                 <div class="product-detail-c">
                                     <p class="product-name">

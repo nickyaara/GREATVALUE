@@ -79,19 +79,199 @@ function toggleResponce(value) {
   }
 }
 
-// product page filter and sort functionality code
+// product page filter reset functionality
+
+function resetAll(){
+  const brandCheckboxs = document.querySelectorAll('.brand-checkbox');
+  brandCheckboxs.forEach((checkbox) => {
+    checkbox.checked = false;
+});
+const categoryCheckboxs = document.querySelectorAll('.category-checkbox');
+categoryCheckboxs.forEach((checkbox) => {
+  checkbox.checked = false;
+});
+const minPriceInput = document.querySelector('#min-price').value='';
+const maxPriceInput = document.querySelector('#max-price').value='';
+const sortBarInput = document.querySelector('#sort').selectedIndex = 0;
+formReq();
+}
+
+// product page filter and sort functionality code for large screen
+
+async function formReq() {
+  const sortBy = document.querySelector('#sort').value;
+  const brands = document.querySelectorAll('.brand-checkbox');
+  const categories = document.querySelectorAll('.category-checkbox');
+  let minPrice = document.querySelector('#min-price').value;
+  let maxPrice = document.querySelector('#max-price').value;
+  const selectedBrandArray=[];
+  const selectedCategoryArray=[];
+  let dataObject={};
+  brands.forEach(brand => {
+    if(brand.checked){
+      selectedBrandArray.push(brand.value);
+    }
+  })
+  categories.forEach(category => {
+    if(category.checked){
+      selectedCategoryArray.push(category.value)
+    }
+  })
+  
+  dataObject = {
+    sortValue:sortBy,
+    brandValue:selectedBrandArray,
+    categoriesValue:selectedCategoryArray,
+    minPriceValue:minPrice,
+    maxPriceValue:maxPrice,
+  };
+  // console.log(dataObject);
+  try {
+    const responce = await fetch('http://localhost:3000/products/filter', {
+      method:'POST',
+      headers: {
+        'Content-Type': 'application/json', // Specify the content type
+    },
+      body: JSON.stringify(dataObject),
+    });
+    if(responce.ok) {
+      const displayData = await responce.json();
+      // console.log(displayData);
+      updateProductCard(displayData);
+      document.querySelector('#tCards').innerHTML = displayData.length;
+    } else {
+      console.error('Error fetching data:', response.status);
+  }
+  } catch (err){
+    console.log(err)
+  }
+}
 
 
+function updateProductCard(products) {
+  const productTray = document.querySelector('.product-card-holding-c');
+  productTray.innerHTML = '';
+  products.forEach((product) => {
+    const productCard = document.createElement('div');
+    productCard.setAttribute('class','product-card-c');
+    productCard.setAttribute("id", product.id);
+    const imageContainer = document.createElement('div');
+    imageContainer.setAttribute('class', 'product-image-c')
+    const imageElement = document.createElement('img');
+    imageElement.setAttribute('class','product-card-image')
+    imageElement.src=product.images[0]
+    imageElement.setAttribute('alt',product.p_name)
+    const productDetailsDiv = document.createElement('div');
+    productDetailsDiv.setAttribute('class','product-detail-c');
+    const productNamePara = document.createElement("p");
+    productNamePara.setAttribute('class','product-name');
+    productNamePara.innerHTML=product.p_name;
+    const productSpPara = document.createElement("p");
+    productSpPara.setAttribute('class','product-sp');
+    productSpPara.innerHTML=`Rs. ${product.selling_price} `;
+    const productMrpPara = document.createElement("p");
+    productMrpPara.setAttribute('class','product-mrp');
+    productMrpPara.innerHTML=` M.R.P: Rs. `;
+    const spanElement =document.createElement("SPAN");
+    spanElement.innerHTML=product.mrp
+    const productDiscountPara = document.createElement("p");
+    productDiscountPara.setAttribute('class','product-discount');
+    productDiscountPara.innerHTML=` ${product.mrp-product.selling_price} off`;
+    const productQualityPara = document.createElement("p");
+    productQualityPara.setAttribute('class','product-quality');
+    productQualityPara.innerHTML='Quality verified';
+    imageContainer.appendChild(imageElement);
+    productMrpPara.appendChild(spanElement);
+    productDetailsDiv.appendChild(productNamePara);
+    productDetailsDiv.appendChild(productSpPara);
+    productDetailsDiv.appendChild(productMrpPara);
+    productDetailsDiv.appendChild(productDiscountPara);
+    productDetailsDiv.appendChild(productQualityPara);
+    productCard.appendChild(imageContainer);
+    productCard.appendChild(productDetailsDiv);
+    productTray.appendChild(productCard);
+  })
+};
 
-
+// product page filter and sort functionality code for mobile screen
+if(document.querySelector('#m-filter-apply-btn')){
+document.querySelector('#m-filter-apply-btn').addEventListener('click', async () => {
+  const brandColumn = document.querySelectorAll('.m-product-filter-brand');
+  const categoryColumn = document.querySelectorAll('.m-product-filter-category');
+  const sortBy = document.querySelector('input[name="sort-type"]:checked').value;
+  let minPrice = document.querySelector('#mMinPrice').value;
+  let maxPrice = document.querySelector('#mMaxPrice').value;
+  const selectedBrandArray=[];
+  const selectedCategoryArray=[];
+  let dataObject={};
+  document.querySelector('.m-product-filter-menu-c').style.display ='none';
+  window.scrollTo(0, 0);
+  brandColumn.forEach(brand => {
+    if(brand.checked){
+      selectedBrandArray.push(brand.value);
+    }
+  })
+  categoryColumn.forEach(category => {
+    if(category.checked){
+      selectedCategoryArray.push(category.value)
+    }
+  })
+  dataObject = {
+    sortValue:sortBy,
+    brandValue:selectedBrandArray,
+    categoriesValue:selectedCategoryArray,
+    minPriceValue:minPrice,
+    maxPriceValue:maxPrice,
+  };
+  try {
+    const responce = await fetch('http://localhost:3000/products/filter', {
+      method:'POST',
+      headers: {
+        'Content-Type': 'application/json', // Specify the content type
+    },
+      body: JSON.stringify(dataObject),
+    });
+    if(responce.ok) {
+      const displayData = await responce.json();
+      // console.log(displayData);
+      updateProductCard(displayData);
+      document.querySelector('#tCards').innerHTML = displayData.length;
+    } else {
+      console.error('Error fetching data:', response.status);
+  }
+  } catch (err){
+    console.log(err)
+  }
+})
+}
 //Javascript code that respose to product card click and open detail productshowcase page
 
-document.querySelectorAll('.product-card-c').forEach((div) => {
-  div.addEventListener('click', function (event) {
-    const selectedId = event.target.closest('.product-card-c').id;
-    window.location.assign(`http://localhost:3000/products/${selectedId}`);
-  });
+const productCard = document.querySelector(".product-card-holding-c");
+if(productCard){
+productCard.addEventListener("click", function (event) {
+  const clickedElement = event.target.closest('.product-card-c');
+  if (clickedElement) {
+      const selectedId = clickedElement.id;
+      window.location.assign(`http://localhost:3000/products/${selectedId}`);
+  }
 });
+}
+
+//Javascript code that respose to deal button click(Buy now btn)
+
+function action(value){
+  if(value=="CCM"){
+    window.location.assign('http://localhost:3000/products/category/Currency_handling_machine');
+  } else if(value=="Safe"){
+    window.location.assign('http://localhost:3000/products/category/Safe');
+  }
+}
+// document.querySelectorAll('.product-card-c').forEach((div) => {
+//   div.addEventListener('click', function (event) {
+//     const selectedId = event.target.closest('.product-card-c').id;
+//     window.location.assign(`http://localhost:3000/products/${selectedId}`);
+//   });
+// });
 
 //Javascript code that respose to job apply button click and open job apply page
 
@@ -101,7 +281,7 @@ const jobDisplay = document.querySelector(".career-page-main-c");
 function apply(jobId) {
   // console.log(jobId);
   const position = document.querySelector(`#p-${jobId}`);
-  console.log("'"+position.textContent+"'");
+  // console.log("'"+position.textContent+"'");
   document.querySelector('#position').value=position.textContent.trim();
   jobForm.style.display = "block";
   jobDisplay.style.display = "none";
@@ -435,3 +615,38 @@ async function fetchFilteredContent(condition){
 //         const result = await response.json();
 //         console.log(result);
 //       })
+
+// mobile view filter js
+
+if(document.querySelector('.filter-link-c')){
+document.querySelector('.filter-link-c').addEventListener('click', () => {
+  document.querySelector('.m-product-filter-menu-c').style.display = 'block';
+})}
+
+if(document.querySelector('.m-product-filter-action-btn-c')){
+document.querySelector('.m-product-filter-action-btn-c').addEventListener('click', () => {
+  document.querySelector('.m-product-filter-menu-c').style.display = 'none';
+})}
+
+function toggleMenu(selection){
+  let sections = document.querySelectorAll('#filter-window > div');
+  let initiator = document.querySelectorAll('.m-product-filter-option-btn')
+  for (var i = 0; i < sections.length; i++) {
+    if (sections[i].id === selection) {
+      sections[i].style.display = 'block';
+      initiator[i].style.color = 'black';
+    } else {
+      sections[i].style.display = 'none';
+      initiator[i].style.color = 'grey';
+    }
+  }
+}
+
+// document.addEventListener('click', (event) => {
+//   const mFilter = document.querySelector('.m-product-filter-menu-c');
+//   const mFilterBtn = document.querySelector('.filter-link-c');
+//   const clickedElement = event.target;
+//   if (clickedElement !== mFilter && clickedElement !== mFilterBtn) {
+//     mFilter.style.display = 'none';
+// }
+// })
