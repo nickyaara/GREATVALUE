@@ -1,0 +1,125 @@
+<%- include("partials/header.ejs"); %>
+    <div class="cart-main-c">
+        <div class="cart-header-c">
+            <div class="cart-header-icon-c">
+                <i class="fa-regular fa-thumbs-up icon"></i>
+                <p class="cart-header-icon-msg">Like</p>
+            </div>
+            <div class="cart-header-icon-c">
+                <i class="fa-solid fa-box icon"></i>
+                <p class="cart-header-icon-msg">Order</p>
+            </div>
+            <div class="cart-header-icon-c">
+                <i class="fa-solid fa-truck-ramp-box icon"></i>
+                <p class="cart-header-icon-msg">Delivered</p>
+            </div>
+        </div>
+        <div class="cart-body-c">
+            <div class="order-detail-c">
+                <div class="order-detail-heading-c">
+                    <p class="order-detail-heading">Order Details</p>
+                    <p class="items-count">Total Items : <span>1</span></p>
+                </div>
+            <div class="cart-items-list-c">
+                <div class="cart-item-c">
+                    <div class="cart-item-image-c">
+                        <img class="cart-item-image" src="/images/great-value-trademart.png" alt="Item image" />
+                    </div>
+                    <div class="cart-item-details-holding-c">
+                        <div class="cart-item-detail-c">
+                            <p class="cart-item-heading">Chair</p>
+                            <p class="cart-item-brand">Great Value</p>
+                            <p class="cart-item-quantity">Qty : 
+                                <select name="quantity" id="items-count">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                </select>
+                            </p>
+                            <div class="cart-item-price-c">
+                                <p class="item-sp"><i class="fa-solid fa-indian-rupee-sign"></i> 9000</p>
+                                <p class="item-mrp"><i class="fa-solid fa-indian-rupee-sign"></i> 16000</p>
+                                <p class="item-discount">7000 OFF</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="cart-item-remove-btn-c">
+                        <i class="fa-solid fa-xmark item-remove-btn"></i>
+                        <!-- <p class="item-remove-btn">Remove</p> -->
+                    </div>  
+                </div>
+                
+            </div>
+        </div>
+            <div class="cart-order-main-c">
+                <div class="cart-order-details-c">
+                    <div class="cart-billing-c">
+                        <div class="cart-address-c">
+                            <div class="cart-address-heading-c">
+                                <p class="cart-address-heading">Address</p>
+                            </div>
+                            <div class="cart-address-input-c">
+                                <label class="cart-address-form-label" for="cName">Name</label>
+                                <input id="cName" class="cart-address-form-input" type="text" name="cName" placeholder="Name" required />
+                            </div>
+                            <div class="cart-address-input-c">
+                                <label class="cart-address-form-label" for="cNumber">Mobile number</label>
+                                <input id="cNumber" class="cart-address-form-input" type="tel" name="cNumber" placeholder="Mobile Number" required />
+                            </div>
+                            <div class="cart-address-input-c">
+                                <label class="cart-address-form-label" for="cAddress">Address</label>
+                                <input id="cAddress"  type="text" class="cart-address-form-input" name="cAddress" placeholder="Address" required/>
+                            </div>
+                            <div class="cart-address-input-c">
+                                <label class="cart-address-form-label" for="cPincode">Pincode</label>
+                                <input id="cPincode" type="number" class="cart-address-form-input" name="cPincode" placeholder="Pincode" required/>
+                            </div>
+                            <div class="cart-address-input-c">
+                                <label class="cart-address-form-label" for="cCity">City</label>
+                                <input id="cCity" type="text" class="cart-address-form-input" name="cCity" placeholder="City" required/>
+                            </div>
+                            <div class="cart-address-input-c">
+                                <label class="cart-address-form-label" for="cState">State</label>
+                                <input id="cState" type="text" class="cart-address-form-input" name="cState" placeholder="State" required/>
+                            </div>
+                        </div>
+                        <div class="cart-price-c">
+                            <div class="cart-price-heading-c">
+                                <p class="cart-price-heading">Price Details</p>
+                            </div>
+                            <div class="cart-price-value-display-c">
+                                <p class="price-discription">Total MRP</p>
+                                <p class="price-value"><i class="fa-solid fa-indian-rupee-sign"></i> <span>15000</span></p>
+                            </div>
+                            <div class="cart-price-value-display-c">
+                                <p class="price-discription">Total Dicount</p>
+                                <p class="price-value"><i class="fa-solid fa-indian-rupee-sign"></i> <span>5000</span></p>
+                            </div>
+                            <div class="cart-price-value-display-c">
+                                <p class="price-discription">Total Tax</p>
+                                <p class="price-value"><i class="fa-solid fa-indian-rupee-sign"></i> <span>15000</span></p>
+                            </div>
+                            <div class="cart-price-value-display-c">
+                                <p class="price-discription">Delivery</p>
+                                <p class="price-value"><i class="fa-solid fa-indian-rupee-sign"></i> <span>5000</span></p>
+                            </div>
+                            <hr style="color: lightgrey;">
+                            <div class="cart-price-value-display-c">
+                                <p class="price-discription">Sub Total</p>
+                                <p class="price-value"> <i class="fa-solid fa-indian-rupee-sign"></i> <span>15000</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-submit-btn-c">
+                    <button class="cart-submit-btn">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include("partials/footer.ejs"); %>

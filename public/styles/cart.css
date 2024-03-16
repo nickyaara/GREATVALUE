@@ -1,0 +1,225 @@
+.cart-main-c {
+    margin: 1rem 1rem 3rem;
+}
+
+.cart-header-c {
+    display: flex;
+    justify-content: space-evenly;
+    padding: .7rem 0;
+    border-bottom: 1px solid lightgrey;
+}
+
+.cart-header-icon-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    border-radius: 50%;
+    background-color: beige;
+    height: 80px;
+}
+
+.icon {
+    font-size: 1.5rem;
+    padding-bottom: .4rem;
+    color: #ae9e99;
+}
+
+.cart-header-icon-msg {
+    font-size: .7rem;
+    color: #ae9e99;
+}
+
+.step {
+    font-size: 1.2rem;
+    color: grey;
+}
+
+.cart-body-c {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.order-detail-heading-c {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.order-detail-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.items-count {
+    font-size: .8rem;
+}
+
+.cart-items-list-c {
+    margin: 0 1rem;
+    width: 400px;
+}
+
+.cart-item-c {
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    display: flex;
+    padding: .4rem;
+    /* margin: .5rem; */
+    position: relative;
+}
+
+.cart-item-image-c {
+    width: 25%;
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 100px;
+    /* border: 1px solid black;
+    margin-right: 1.5px; */
+}
+
+.cart-item-details-holding-c {
+    width: 75%;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+.cart-item-remove-btn-c {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.cart-item-heading, .cart-item-brand, .cart-item-quantity {
+    font-size: .8rem;
+    font-weight: 600;
+    padding: .2rem 0;
+}
+
+.cart-item-price-c {
+    margin: .4rem 0;
+    display: flex;
+}
+
+.cart-item-price-c i {
+    font-size: .7rem;
+}
+
+.item-sp {
+    /* font-size: 1.1rem; */
+    font-weight: 600;
+    margin-right: .5rem;
+}
+
+.item-mrp {
+    color: lightgrey;
+    text-decoration: line-through;
+    margin-right: .5rem;
+}
+
+.item-discount {
+    color: orange;
+}
+
+.item-remove-btn {
+    cursor: pointer;
+}
+
+.cart-order-main-c {
+    padding: .5rem;
+    border-left: 1px solid grey;
+}
+
+.cart-order-details-c {
+    width: 280px;
+}
+
+.cart-address-c, .cart-price-c {
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding: .5rem;
+    margin-bottom: 1rem;
+}
+
+.cart-address-input-c {
+    display: flex;
+    flex-direction: column;
+    padding: .2rem 0;
+}
+
+.cart-address-input-c label {
+    padding: .2rem 0;
+    font-size: .7rem;
+    font-weight: 600;
+    color: grey;
+}
+
+.cart-address-input-c input {
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding: .2rem .3rem;
+    font-size: .7rem;
+}
+
+.cart-price-heading-c, .cart-address-heading-c {
+    padding: .5rem 0;
+}
+
+.cart-price-heading, .cart-address-heading {
+    font-weight: 600;
+}
+
+.cart-price-value-display-c {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-discription {
+    padding: .3rem 0;
+    font-size: .9rem;
+    color: grey;
+}
+
+.fa-indian-rupee-sign {
+    font-size: .7rem;
+    color: grey;
+}
+
+.cart-submit-btn {
+    width: 100%;
+    border: none;
+    background-color: rgb(255, 63, 108);
+    color: white;
+    padding: .6rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+@media screen and (max-width:767px) {
+    .cart-body-c {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 0;
+    }
+    .order-detail-heading-c {
+        padding: 1rem .5rem
+    }
+    .cart-items-list-c {
+        margin: 1rem 0;
+        width: 100%;
+    }
+    .cart-order-main-c {
+        padding: .5rem;
+        border: none;
+    }
+    .cart-order-details-c {
+        width: 100%;
+    }
+}

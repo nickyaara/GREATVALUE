@@ -78,15 +78,79 @@ header {
 
 /* Login icon CSS */
 
+.header-sub2-c {
+    position: relative;
+}
+
 .login-signin-c {
     display: flex;
     justify-content: end;
 }
 
-.login-signin-c a i {
+.login-signin-c a i, #user-icon i {
     font-size: 1.4rem;
     margin: .5rem .8rem;
     color: #ae9e99;
+    border-bottom: 3px solid transparent;
+}
+
+#user-icon {
+    cursor: pointer;
+}
+
+.user-link-c a {
+    text-decoration: none;
+    color: #485559;
+}
+
+.user-link-c a:hover {
+    color: orange;
+}
+
+.user-option-c {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    border: 1px solid #ae9e99;
+    background-color: white;
+    width: 110px;
+}
+
+.user-link-c {
+    border: .1rem solid #ae9e99;
+    padding: .3rem .5rem;
+    cursor: pointer;
+}
+
+#user-logout-btn {
+    border: none;
+    background-color: white;
+    color: #485559;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Cart icon CSS */
+
+#cart-icon {
+    position: relative;
+}
+
+.notification-display-icon {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    top: 6px;
+    left: 27px;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }
 
 /* Lower header CSS that cover nav links */

@@ -13,6 +13,27 @@
     gap: 10px;
 }
 
+/* Message div CSS */
+
+#message-div {
+    padding: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    position: fixed;
+    top: 50px;
+    right: 600px;
+    font-weight: 600;
+}
+
+.success {
+    border: 2px solid green;
+    color: green;
+}
+.error {
+    border: 2px solid red;
+    color: red;
+}
+
 /* Option tray CSS */
 
 .option-tray-c {
@@ -372,7 +393,7 @@
 }
 
 .list-b {
-    width: 200px;
+    width: 240px;
 }
 
 .list-c {
@@ -384,9 +405,40 @@
 }
 
 .list-e {
-    width: 200px;
+    width: 220px;
 }
 
 .list-edit, .list-delete {
     width: 60px;
+    cursor: pointer;
+}
+
+/* Job application table width CSS */
+
+.list-i {
+    width: 220px;
+}
+
+.list-ii {
+    width: 180px;
+}
+
+.list-iii {
+    width: 180px;
+}
+
+.list-iv {
+    width: 130px;
+}
+
+.list-v {
+    width: 150px;
+}
+
+.list-vi {
+    width: 100px;
+}
+
+.list-vii {
+    width: 70px;
 }

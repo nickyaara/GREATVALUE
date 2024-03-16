@@ -1,3 +1,16 @@
+// Javascript to toggle user login signup container on click
+
+document.querySelector('#user-icon').addEventListener('click', () => {
+  const div = document.querySelector('.user-option-c');
+  const divDisplayValue = window.getComputedStyle(div).getPropertyValue('display');
+  if(divDisplayValue =='none') {
+    div.style.display='block';
+  } else {
+    div.style.display='none';
+  }
+})
+
+// Javascript code to toggle display of hemburger-menu
 
 let isVisible = true;
 document.querySelector("#hemburder-menu").addEventListener("click", () => {
@@ -9,53 +22,21 @@ document.querySelector("#hemburder-menu").addEventListener("click", () => {
   isVisible = !isVisible;
 })
 
+const menu = document.querySelector("#mobile-navbar");
+const hem = document.querySelector("#hemburder-menu");
 
-// Js Code to toggle between login and signup screen
-
-const loginForm = document.querySelector(".login-display-c");
-const signupForm = document.querySelector(".signup-display-c");
-const loginLink = document.querySelector("#login-link");
-const signupLink = document.querySelector("#signup-link");
-const linkToLogin = document.querySelector(".login-link");
-const linkToSignup = document.querySelector(".signup-link");
-
-const displayScreen = (req) => {
-  if (req === "login") {
-    loginForm.style.display = "block";
-    signupForm.style.display = "none";
-    loginLink.classList.add("active");
-    signupLink.classList.remove("active");
-  } else if (req === "signup") {
-    loginForm.style.display = "none";
-    signupForm.style.display = "block";
-    loginLink.classList.remove("active");
-    signupLink.classList.add("active");
+document.addEventListener('click', (event) => {
+  // below if block hide the login signup container when user click anywhere except this container
+  if(!document.querySelector('.user-option-c').contains(event.target) && 
+  !document.querySelector('#user-icon').contains(event.target)){
+    document.querySelector('.user-option-c').style.display='none';
   }
-}
-
-if (loginLink) {
-  loginLink.addEventListener("click", () => {
-    displayScreen("login");
-  })
-}
-
-if (signupLink) {
-  signupLink.addEventListener("click", () => {
-    displayScreen("signup");
-  })
-}
-
-if (linkToLogin) {
-  linkToLogin.addEventListener("click", () => {
-    displayScreen("login");
-  })
-}
-
-if (linkToSignup) {
-  linkToSignup.addEventListener("click", () => {
-    displayScreen("signup");
-  })
-}
+  // below if block hide the hemburger manu container when user click anywhere except this container
+  if(!menu.contains(event.target) && !hem.contains(event.target) && !isVisible) {
+    document.querySelector("#mobile-navbar").style.left = "-200px";
+    isVisible = !isVisible;
+  }
+})
 
 // FAQ section Js to show and hide answer of a question
 
@@ -266,12 +247,6 @@ function action(value){
     window.location.assign('http://localhost:3000/products/category/Safe');
   }
 }
-// document.querySelectorAll('.product-card-c').forEach((div) => {
-//   div.addEventListener('click', function (event) {
-//     const selectedId = event.target.closest('.product-card-c').id;
-//     window.location.assign(`http://localhost:3000/products/${selectedId}`);
-//   });
-// });
 
 //Javascript code that respose to job apply button click and open job apply page
 
@@ -279,9 +254,7 @@ const jobForm = document.querySelector(".job-application-block");
 const jobDisplay = document.querySelector(".career-page-main-c");
 
 function apply(jobId) {
-  // console.log(jobId);
   const position = document.querySelector(`#p-${jobId}`);
-  // console.log("'"+position.textContent+"'");
   document.querySelector('#position').value=position.textContent.trim();
   jobForm.style.display = "block";
   jobDisplay.style.display = "none";
@@ -351,7 +324,7 @@ if(applicantName){
 
       function fileValidation(){
         let selectedFile = document.querySelector('#cv').files[0];
-        console.log(selectedFile.size);
+        // console.log(selectedFile.size);
         let ValidFileType = "application/pdf";
         if(ValidFileType !== selectedFile.type || selectedFile.size>1048576) {
           alert('Only PDF fileformat is accepted under 1MB size');
@@ -424,17 +397,17 @@ for (let i = 0; i < subImages.length; i++) {
   })
 }
 
-// Javascript code for register form validatio
+// Javascript code for register form validation
 
 let userNameFlag = false;
 let emailFlag = false;
 let passwordOneFlag = false;
 let passwordTwoFlag = false;
-let userName = document.getElementById('user-name');
-let userEmail = document.getElementById('user-email');
-let passwordOne = document.getElementById('signup-password');
-let passwordTwo = document.getElementById('signup-repassword');
-let signupBtn = document.querySelector('#signup-form-submit-btn');
+let userName = document.getElementById('signupUsername');
+let userEmail = document.getElementById('signupEmail');
+let passwordOne = document.getElementById('signupPassword');
+let passwordTwo = document.getElementById('signupRepassword');
+let signupBtn = document.querySelector('#createAccBtn');
 
 if(userName){
 userName.addEventListener('blur', () => {
@@ -497,7 +470,7 @@ passwordTwo.addEventListener('blur', () => {
 
 function activate() {
   if (userNameFlag && emailFlag && passwordOneFlag && passwordTwoFlag) {
-    document.getElementById('signup-form-submit-btn').disabled = false;
+    document.getElementById('createAccBtn').disabled = false;
   } 
 };
 
@@ -570,52 +543,6 @@ async function fetchFilteredContent(condition){
   }
 }
 
-// Javascript code for login functionality
-
-// function loginAction() {
-//   const form = document.querySelector('.login-form');
-// const email = form.elements.loginId.value;
-// const password = form.elements.password.value;
-//   // let loginId = document.querySelector('#login-id').value;
-//   // let password = document.querySelector('#login-password').value;
-//   alert(email);
-//   alert(password);
-//   fetch("/login",{
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({ loginId: email, password:password})
-//   })
-//   .then(response => console.log(response.json()))
-// .then(data => {
-//   // Handle the response data here
-//   console.log(data.message);
-// })
-// .catch(error => {
-//   // Handle errors here
-//   console.error(error);
-// });
-// }
-
-// const form = document.querySelector('.login-form');
-//       form.addEventListener('submit', async (event) => {
-//         event.preventDefault();
-//         const name = form.elements.loginId.value;
-//         const email = form.elements.password.value;
-//         const data = { name, email };
-//         console.log(data);
-//         const response = await fetch("/login", {
-//           method: 'POST',
-//           // headers: {
-//           //   'Content-Type': 'application/json'
-//           // },
-//           body:  data //JSON.stringify(data)
-//         });
-//         const result = await response.json();
-//         console.log(result);
-//       })
-
 // mobile view filter js
 
 if(document.querySelector('.filter-link-c')){
@@ -642,11 +569,3 @@ function toggleMenu(selection){
   }
 }
 
-// document.addEventListener('click', (event) => {
-//   const mFilter = document.querySelector('.m-product-filter-menu-c');
-//   const mFilterBtn = document.querySelector('.filter-link-c');
-//   const clickedElement = event.target;
-//   if (clickedElement !== mFilter && clickedElement !== mFilterBtn) {
-//     mFilter.style.display = 'none';
-// }
-// })

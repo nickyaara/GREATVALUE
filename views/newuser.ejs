@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs"); %>
+<section class="create-account-s">
+    <div class="signup-block">
+        <!-- <div class="signup-img-c"></div> -->
+        <div class="signup-heading-c">
+            <p class="signup-heading">Welcome to GreatValue</p>
+        </div>
+        <div class="signup-msg-c">
+            <p class="signup-msg">Create an account..</p>
+        </div>
+        <div class="signup-form-c">
+            <form class="signup-form" action="/register" method="POST">
+            <div class="signup-input-c">
+                <label class="signup-label" for="signupUsername">Name</label>
+                <input id="signupUsername" class="signup-input" type="text" name="username" autocomplete="on"/>
+            </div>
+            <div class="signup-input-c">
+                <label class="signup-label" for="signupEmail">Email</label>
+                <input id="signupEmail" class="signup-input" type="email" name="email" autocomplete="on"/>
+            </div>
+            <div class="signup-input-c">
+                <label class="signup-label" for="signupPassword">Password</label>
+                <input id="signupPassword" class="signup-input" type="password" name="password" autocomplete="off"/>
+            </div>
+            <div class="signup-input-c">
+                <label class="signup-label" for="signupRepassword">Retype-Password</label>
+                <input id="signupRepassword" class="signup-input" type="password" name="repassword" autocomplete="off"/>
+            </div>
+            <div class="signup-submit-btn-c">
+                <button id="createAccBtn" class="signup-btn" type="submit" disabled>Create Account</button>
+            </div>
+        </form>
+            <div class="login-link-c">
+                <p class="login-link">Already have an account? <a class="link-2-login" href="/user">Login</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Message container to show error msg -->
+<div class="register-msg-c">
+    <div class="border-c">
+        <p class="register-msg"></p>
+    </div>
+</div>
+   
+<%- include("partials/footer.ejs"); %>
